@@ -1,7 +1,10 @@
 <div id="produits">
 
 <?php
-// parcours du tableau contenant les produits à afficherforeach( $lesProduits as $unProduit) 
+// parcours du tableau contenant les produits à afficher
+
+echo $lib;
+foreach( $lesProduits as $unProduit) 
 { 	// récupération des informations du produit
 	$id = $unProduit['id'];
 	$description = $unProduit['description'];

@@ -16,6 +16,7 @@ switch($action)
 		include("vues/v_categories.php");
   		$categorie = $_REQUEST['categorie'];
 		$lesProduits = getLesProduitsDeCategorie($categorie);
+		$lib = getLesInfosCategorie($categorie)['libelle'];
 		include("vues/v_produitsDeCategorie.php");
 		break;
 	}
