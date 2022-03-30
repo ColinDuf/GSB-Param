@@ -3,13 +3,12 @@
 <?php
 // parcours du tableau contenant les produits à afficher
 foreach( $lesProduits as $unProduit) 
-{ 	// récupération des informations du produit
-	
+{ 	
 	$id = $unProduit['id'];
 	$description = $unProduit['description'];
 	$prix=$unProduit['prix'];
 	$image = $unProduit['image'];
-	// affichage d'un produit avec ses informations
+	
 	?>	
 	<div class="card">
 			<div class="photoCard"><img src="<?php echo $image ?>" alt=image /></div>

@@ -20,6 +20,12 @@ switch($action)
 		include("vues/v_produitsDeCategorie.php");
 		break;
 	}
+	case 'nosProduits' :
+		{
+			$leProduit = infosProduits($_POST['id']);
+        include("vues/v_produits.php");
+        break;
+		}
 	case 'ajouterAuPanier' :
 	{
 		$idProduit=$_REQUEST['produit'];
