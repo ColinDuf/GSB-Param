@@ -1,9 +1,9 @@
 <html>
 <body>
     <div class=" py-3 d-flex flex-column align-items-center w-50 border border-secondary rounded" id="container" style="text-align:center">
-        <form action="index.php?uc=gestionConnexion&action=verif" method="POST">
+        <form action="index.php?uc=gestionInscription&action=verif" method="POST">
             <div class="py-4">
-            <h1>Connexion</h1>
+            <h1>Inscription</h1>
             </div>
             <label class="py-2 "><b>Email</b></label>
             <br>
