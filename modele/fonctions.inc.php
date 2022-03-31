@@ -1,21 +1,5 @@
 ﻿<?php
-/**
- * @file fonctions.inc.php
- * @author Marielle Jouin <jouin.marielle@gmail.com>
- * @version    2.0
- * @date juin 2021
- * @details contient les fonctions qui ne font pas accès aux données de la BD
 
- * regroupe les fonctions pour gérer le panier, et les erreurs de saisie dans le formulaire de commande
-
- * @package  GsbParam\util
-*/
-/**
- * Initialise le panier
- *
- * Crée un tableau associatif $_SESSION['produits']en session dans le cas
- * où il n'existe pas déjà
-*/
 function initPanier()
 {
 	if(!isset($_SESSION['produits']))
@@ -23,25 +7,12 @@ function initPanier()
 		$_SESSION['produits']= array();
 	}
 }
-/**
- * Supprime le panier
- *
- * Supprime le tableau associatif $_SESSION['produits']
- */
+
 function supprimerPanier()
 {
 	unset($_SESSION['produits']);
 }
-/**
- * Ajoute un produit au panier
- *
- * Teste si l'identifiant du produit est déjà dans la variable session 
- * ajoute l'identifiant à la variable de type session dans le cas où
- * où l'identifiant du produit n'a pas été trouvé
- 
- * @param string $idProduit identifiant de produit
- * @return boolean $ok vrai si le produit n'était pas dans la variable, faux sinon 
-*/
+
 function ajouterAuPanier($idProduit)
 {
 	

@@ -1,22 +1,24 @@
 <html>
 <body>
-    <div class=" py-3 d-flex flex-column align-items-center w-50 border border-secondary rounded" id="container" style="text-align:center">
-        <form action="index.php?uc=gestionConnexion&action=verif" method="POST">
-            <div class="py-4">
-            <h1>Connexion</h1>
+    <link rel="stylesheet" href="./modele/cssConnexion.css">
+    <div class="container">
+        <form action="index.php?uc=gestionConnexion&action=verif" class="form" id="login" method="POST">
+            <h1 class="form_title">Connexion</h1>
+            <div class="form__message form__message--error"></div>
+            <div class="form__input-group">
+                <input type="email" class="form__input" autofocus placeholder="Email" required>
+                <div class="form__input-error-message"></div>
             </div>
-            <label class="py-2 "><b>Email</b></label>
-            <br>
-            <input type="text" placeholder="Entrer votre email" name="mail" required>
-            <br>
-            <label class="py-2"><b>Mot de passe</b></label>
-            <br>
-            <input type="password" placeholder="Entrer mot de passe" name="pass" required>
-            <div class="py-4">
-        <button name="submit" class="btn btn-success ">Valider</button>
-        <div>
+            <div class="form__input-group">
+                <input type="password" class="form__input" autofocus placeholder="Mot de passe" required>
+                <div class="form__input-error-message"></div>
+            </div>
+            <button class="form__button" type="submit">Valider</button>
+            <p class="form__text">
+                <a class="form__link" href="index.php?uc=gestionConnexion&action=inscription" id="linkCreateAccount">Pas de compte ? Créer un compte</a>
+            </p>
         </form>
     </div>
+    <script>scr = "./modele/main.js"</script>
 </body>
-
 </html>
