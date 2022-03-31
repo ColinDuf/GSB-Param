@@ -24,5 +24,7 @@ foreach( $lesProduitsDuPanier as $unProduit)
 <div class="commande">
 <a href="index.php?uc=gererPanier&action=passerCommande"><img src="images/commander.jpg" title="Passer commande" alt="Commander"></a>
 </div>
+<a href="index.php?uc=gererPanier&action=supprimerPanier"><img src="images/commander.jpg" title="Supprimer Panier" alt="SupprimerPanier"></a>
+
 </div>
 <br/>

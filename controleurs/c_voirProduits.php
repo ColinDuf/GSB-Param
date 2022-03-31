@@ -22,7 +22,7 @@ switch($action)
 	}
 	case 'nosProduits' :
 		{
-			$leProduit = infosProduits($_POST['id']);
+			$lesProduits = getLesProduits();
         include("vues/v_produits.php");
         break;
 		}

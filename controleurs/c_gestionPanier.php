@@ -27,6 +27,13 @@ switch($action)
 		include("vues/v_panier.php");
 		break;
 	}
+	case 'supprimerPanier':
+		{
+			supprimerPanier();
+			include("vues/v_panier.php");
+			break;
+		}
+	
 	case 'passerCommande' :
 	    $n= nbProduitsDuPanier();
 		if($n>0)

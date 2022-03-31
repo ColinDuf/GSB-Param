@@ -99,6 +99,7 @@ function retirerDuPanier($idProduit)
 		$index =array_search($idProduit,$_SESSION['produits']);
 		unset($_SESSION['produits'][$index]);
 }
+
 /**
  * teste si une chaîne a un format de code postal
  *

@@ -173,12 +173,13 @@ include_once 'bd.inc.php';
         die();
 		}
 	}
-	function infosProduits($id){
+
+	function getLesProduits(){
 		$monPdo=connexionPDO();
-		$req = 'SELECT * FROM produit';
+		$req = 'select id, description, prix, image, idCategorie from produit';
 		$res = $monPdo->query($req);
-		$pra = $res->fetch();
+		$prod = $res->fetchall();
 		
-		return $pra;
+		return $prod;
 	}
 ?>
