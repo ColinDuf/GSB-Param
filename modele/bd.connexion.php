@@ -6,32 +6,22 @@ function verifConnexion()
         $mail = $_POST['mail'];
         $pass = $_POST['pass'];
 
-        $sql = "SELECT mail, mdp FROM compte WHERE mail = '$mail'";
+        $sql = 'SELECT mail, mdp FROM compte WHERE mail = "'.$mail.'"';
         $result = $monPdo->prepare($sql);
         $result->execute();
-
         if ($result->rowCount() > 0) {
             $data = $result->fetch();
-            if (password_verify($pass, $data["mdp"])) {
+            if ($pass == $data["mdp"]) {
                  $_SESSION['user'] = $mail;
+                
                 header('Location: index.php?uc=accueil');
             } else {
 ?>
-                <br>
-                <div class="alert alert-danger w-25 m-auto text-center" role="alert"> Identifiant ou mot de passe incorect !
+                <div class="alert alert-danger py-3 w-25 m-auto text-center" role="alert"> Identifiant ou mot de passe incorect !
                 </div>
             <?php
             }
-        } else {
-            ?>
-            <br>
-            <div class="alert alert-danger w-25 m-auto text-center" role="alert"> Identifiant ou mot de passe incorect !
-            </div>
-<?php
-
-
-
-        }
+        } 
     }
 }
 

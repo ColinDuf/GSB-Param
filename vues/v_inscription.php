@@ -1,21 +1,46 @@
 <html>
 <body>
-    <div class=" py-3 d-flex flex-column align-items-center w-50 border border-secondary rounded" id="container" style="text-align:center">
-        <form action="index.php?uc=gestionInscription&action=verif" method="POST">
+    <div class=" text-center border border-secondary rounded h-auto">
+        <form action="index.php?uc=gestionConnection&action=inscription" method="POST">
             <div class="py-4">
             <h1>Inscription</h1>
-            </div>
-            <label class="py-2 "><b>Email</b></label>
-            <br>
-            <input type="text" placeholder="Entrer votre email" name="mail" required>
-            <br>
-            <label class="py-2"><b>Mot de passe</b></label>
-            <br>
-            <input type="password" placeholder="Entrer mot de passe" name="pass" required>
+            <div class="py-5">
+
+            <label class="py-2 p-4"><b>Nom</b></label>
+            <input type="password" placeholder="Entrez votre nom" name="pass" required>
             <div class="py-4">
+
+            <label class="py-2 p-4"><b>Prenom</label>
+            <input type="text" placeholder="" name="mail" required>
+            <div class="py-4">
+
+            <label class="py-2 p-4"><b>Rue</label>
+            <input type="text" placeholder="Entrer votre email" name="mail" required>
+            <div class="py-4">
+
+            <label class="py-2 p-4"><b>Code Postal</label>
+            <input type="text" placeholder="Entrer votre email" name="mail" required>
+            <div class="py-4">
+
+            <label class="py-2 p-4"><b>Ville</label>
+            <input type="text" placeholder="Entrer votre email" name="mail" required>
+            <div class="py-4">
+
+            <label class="py-2 p-4"><b>Mail</label>
+            <input type="text" placeholder="Entrer votre email" name="mail" required>
+            <div class="py-4">
+
+            <label class="py-2 p-4"><b>Mot de passe</label>
+            <input type="text" placeholder="Entrer votre email" name="mail" required>
+            <div class="py-4">
+
+            <label class="py-2 p-4"><b>Vérifiacation mot de passe</label>
+            <input type="text" placeholder="Entrer votre email" name="mail" required>
+            <div class="py-4">
+
         <button name="submit" class="btn btn-success ">Valider</button>
-        <div>
         </form>
+    </div>
     </div>
 </body>
 

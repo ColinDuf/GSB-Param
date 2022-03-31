@@ -10,3 +10,6 @@
 	<li><a href="index.php?uc=gestionConnexion&action=inscription"> Inscription </a></li>
 	<li><a href="index.php?uc=gestionConnexion&action=seConnecter"> Connexion </a></li>
 </ul>
+<?php
+// if $ session
+?>

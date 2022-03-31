@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include("vues/v_bandeau.html");
+include("vues/v_bandeau.php");
 include("vues/v_entete.html");
 require_once("modele/fonctions.inc.php");
 require_once("modele/bd.produits.inc.php");
