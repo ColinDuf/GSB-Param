@@ -13,7 +13,7 @@
                 <input type="password" class="form__input" name="mdp" autofocus placeholder="Mot de passe" required>
                 <div class="form__input-error-message"></div>
             </div>
-            <button class="form__button" type="submit">Valider</button>
+            <button name="submit" class="form__button" type="submit">Valider</button>
             <p class="form__text">
                 <a class="form__link" href="index.php?uc=gestionConnexion&action=inscription" id="linkCreateAccount">Pas de compte ? Créer un compte !</a>
             </p>
