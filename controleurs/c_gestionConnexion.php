@@ -6,7 +6,6 @@ switch($action)
 	case 'verif' :
 		{
 			$result = verifConnexion();
-			var_dump($result);
 			break;
 		}
 	case 'seConnecter' :

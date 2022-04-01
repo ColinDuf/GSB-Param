@@ -5,14 +5,13 @@ body {
     --color-error: #cc3333;
     --color-success: #4bb544;
     --border-radius: 4px;
-
+    
     margin: 0;
     height: 100vh;
-
     align-items: center;
     justify-items: center;
     font-size: 18px;
-    background-color: #6B8E23;
+    background-color: #cccbcb;
     background-size: cover;
 }
 
@@ -20,12 +19,13 @@ body {
 
     display: flex;
     width: 400px;
+    width: 2000px;
     max-width: 400px;
-    margin: 1rem;
-    padding: 2rem;
+    margin: center;
+    padding: 3rem;
     box-shadow: 0 0 40px Orgba(0, 0, 0, 0.2);
     border-radius: var(--border-radius);
-    background: #ffffff;
+    background: #8FBC8F;
 }
 
 .container,
@@ -52,14 +52,6 @@ body {
     margin-bottom: 1rem;
 }
 
-.form__message--success {
-    color: var(--color-success);
-}
-
-.form__message--error {
-    color: var(--color-error);
-}
-
 .form__input-group {
     margin-bottom: 1rem;
 }
@@ -81,17 +73,6 @@ body {
     background: #ffffff;
 }
 
-.form__input--error {
-    color: var(--color-error);
-    border-color: var(--color-error);
-}
-
-.form__input-error-message {
-    margin-top: 0.5rem;
-    font-size: 0.85rem;
-    color: var(--color-error);
-}
-
 .form__button {
     width: 100%;
     padding: 1rem 2rem;
@@ -102,7 +83,7 @@ body {
     border-radius: var(--border-radius);
     outline: none;
     cursor: pointer;
-    background: var(--color-primary);
+    background: #2E8B57;
  }
 
  .form__button:hover {
@@ -120,6 +101,7 @@ body {
     color: var(--color-secondary);
     text-decoration: none;
     cursor: pointer;
+  
 }
 .form link:hover {
 text-decoration: underline;
