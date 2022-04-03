@@ -27,15 +27,15 @@ function verifConnexion()
 function createAccount()
 {
     $monPdo = connexionPDO();
-    $req = $monPdo->prepare("INSERT INTO compte (id, nom, prenom, rue, cp, ville, mail, mdp) VALUES (:id,:nom,:prnom,:rue,:cp,:ville,:mail,:mdp);");
+    $req = $monPdo->prepare("INSERT INTO compte (id, nom, prenom, email, ville, cp, rue, pass) VALUES (:id, :nom, :prenom, :email, :ville, :cp, :rue, :pass);");
     $req->bindParam('id', $id);
     $req->bindParam('nom', $nom);
     $req->bindParam('prenom', $prenom);
-    $req->bindParam('rue', $rue);
-    $req->bindParam('cp', $cp);
+    $req->bindParam('email', $email);
     $req->bindParam('ville', $ville);
-    $req->bindParam('mail', $mail);
-    $req->bindParam('mdp', $mdp);
+    $req->bindParam('cp', $cp);
+    $req->bindParam('rue', $rue);
+    $req->bindParam('pass', $pass);
     $req->execute();
 }
 

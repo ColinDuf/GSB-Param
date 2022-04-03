@@ -22,6 +22,6 @@ foreach( $lesProduits as $unProduit)
 	</div>
 
 <?php			
-} // fin du foreach qui parcourt les produits
+} 
 ?>
 </div>

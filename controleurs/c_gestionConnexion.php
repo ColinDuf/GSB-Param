@@ -20,6 +20,7 @@ switch($action)
 		}
 		case 'inscription' :
 			{
+				createAccount();
 				include("vues/v_inscription.php");
 				break;
 			}
