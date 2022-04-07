@@ -5,7 +5,9 @@ switch($action)
 
 	case 'verif' :
 		{
+
 			$result = verifConnexion();
+			
 			break;
 		}
 	case 'seConnecter' :
@@ -17,6 +19,7 @@ switch($action)
 		{
 			include("vues/v_deconnexion.php");
 			break;
+			echo 'Utilisateur déconecté';
 		}
 		case 'inscription' :
 			{

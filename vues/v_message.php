@@ -1,7 +1,7 @@
-﻿<div class="message">
-<ul><li>
-<?php echo $message;
-?>
+﻿<div class="alert alert-danger text-center">
+        <?php echo $message ?>
+</div>
+</div>
 </li>
 </ul>
 </div>
