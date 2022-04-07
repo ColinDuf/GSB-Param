@@ -5,7 +5,7 @@ function verifConnexion()
         $monPdo = connexionPDO();
         $mail = $_POST['mail'];
         $pass = $_POST['mdp'];
-        $sql = 'SELECT email, pass FROM compte WHERE email = "'.$mail.'"';
+        $sql = 'SELECT mail, mdp FROM compte WHERE mail = "'.$mail.'"';
         $result = $monPdo->prepare($sql);
         $result->execute();
         if ($result->rowCount() > 0) {
@@ -24,18 +24,17 @@ function verifConnexion()
     }
 }
 
-function createAccount()
+function createAccount($nom, $prenom, $mail, $ville, $cp, $rue, $pass)
 {
     $monPdo = connexionPDO();
-    $req = $monPdo->prepare("INSERT INTO compte (id, nom, prenom, email, ville, cp, rue, pass) VALUES (:id, :nom, :prenom, :email, :ville, :cp, :rue, :pass);");
-    $req->bindParam('id', $id);
+    $req = $monPdo->prepare("INSERT INTO compte (nom, prenom, mail, ville, cp, rue, mdp) VALUES (:nom, :prenom, :mail, :ville, :cp, :rue, :mdp);");
     $req->bindParam('nom', $nom);
     $req->bindParam('prenom', $prenom);
-    $req->bindParam('email', $email);
+    $req->bindParam('mail', $mail);
     $req->bindParam('ville', $ville);
     $req->bindParam('cp', $cp);
     $req->bindParam('rue', $rue);
-    $req->bindParam('pass', $pass);
+    $req->bindParam('mdp', $pass);
     $req->execute();
 }
 

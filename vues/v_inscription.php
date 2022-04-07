@@ -2,7 +2,7 @@
 <body>
 <link rel="stylesheet" href="./modele/cssConnexion.css">
 <div class="container justify-content-center">
-        <form action="index.php?uc=gestionConnexion&action=verif" class="form" id="login" method="POST">
+        <form action="index.php?uc=gestionConnexion&action=verifInscription" class="form" id="login" method="POST">
             <h1 class="form_title justify-content-center">Inscription</h1>
             <div class="form__input-group">
                 <input type="text" class="form__input" placeholder="Nom" name="nom" autofocus required>
@@ -13,7 +13,7 @@
             </div>
             
             <div class="form__input-group">
-                <input type="email" class="form__input" placeholder="Email" name="email" required>
+                <input type="email" class="form__input" placeholder="Email" name="mail" required>
             </div>
 
             <div class="form__input-group">

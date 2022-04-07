@@ -13,15 +13,19 @@ switch($action)
 			include("vues/v_connexion.php");
 			break;
 		}
-	case 'deconnexion' :
+	case 'seDeconnecter' :
 		{
 			include("vues/v_deconnexion.php");
 			break;
 		}
 		case 'inscription' :
 			{
-				createAccount();
 				include("vues/v_inscription.php");
 				break;
 			}
+			case 'verifInscription' :
+				{
+					createAccount($_POST['nom'], $_POST['prenom'], $_POST['mail'], $_POST['ville'], $_POST['cp'], $_POST['rue'], $_POST['pass']);
+					break;
+				}
 }

@@ -86,7 +86,7 @@ body {
  }
 
  .form__button:hover {
-    background:-webkit-linear-gradient(left, #3C9510, #BCFF10);
+    background:-webkit-linear-gradient(right, #3C9510, #BCFF10);
  }
 
  .form__button:active {
