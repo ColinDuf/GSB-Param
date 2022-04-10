@@ -31,7 +31,7 @@ switch($action)
 		$idProduit=$_REQUEST['produit'];
 		
 		$ok = ajouterAuPanier($idProduit);
-		if(!$ok)
+		/* if(!$ok)
 		{
 			$message = "Cet article est déjà dans le panier !!";
 			include("vues/v_message.php");
@@ -43,8 +43,8 @@ switch($action)
 			header('Location:index.php?uc=voirProduits&action=voirProduits&categorie='.$categorie);
 		}
 		else 
-			header('Location:index.php?uc=voirProduits&action=nosProduits');
-		}
+		} */	header('Location:index.php?uc=voirProduits&action=nosProduits');
+		
 		break;
 	}
 }
