@@ -3,24 +3,39 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
 <?php
+
 if (isset($_SESSION['user'])) {
+
 ?>
-	<ul id="menu">
-		<li><a href="index.php?uc=accueil"> Accueil </a></li>
-		<li><a href="index.php?uc=voirProduits&action=voirCategories"> Nos produits par catégorie</a></li>
-		<li><a href="index.php?uc=voirProduits&action=nosProduits"> Nos produits </a></li>
-		<li><a href="index.php?uc=gererPanier&action=voirPanier"> Voir son panier </a></li>
-		<li><a href="index.php?uc=gestionConnexion&action=seDeconnecter"> Déconnexion </a></li>
-	</ul>
+
+	<div class="navbar">
+		<div class="nom">GSB Param</div>
+		<ul>
+			<li><a href="index.php?uc=accueil"> Accueil </a></li>
+			<li><a href="index.php?uc=voirProduits&action=voirCategories"> Nos produits par catégorie</a></li>
+			<li><a href="index.php?uc=voirProduits&action=nosProduits"> Nos produits </a></li>
+			<li><a href="index.php?uc=gererPanier&action=voirPanier"> Voir son panier </a></li>
+			<li><a href="index.php?uc=gestionConnexion&action=seDeconnecter"> Déconnexion </a></li>
+		</ul>
+	</div>
 <?php
+
 } else {
+
 ?>
-	<ul id="menu">
-		<li><a href="index.php?uc=accueil"> Accueil </a></li>
-		<li><a href="index.php?uc=voirProduits&action=voirCategories"> Nos produits par catégorie</a></li>
-		<li><a href="index.php?uc=voirProduits&action=nosProduits"> Nos produits </a></li>
-		<li><a href="index.php?uc=gestionConnexion&action=inscription"> Inscription </a></li>
-		<li><a href="index.php?uc=gestionConnexion&action=seConnecter"> Connexion </a></li>
-	<?php
+	<div class="navbar">
+		<div class="nom">GSB Param</div>
+		<ul>
+			<li><a class href="index.php?uc=accueil">Accueil</a></li>
+			<li><a href="index.php?uc=voirProduits&action=voirCategories">Nos produits par catégorie</a></li>
+			<li><a href="index.php?uc=voirProduits&action=nosProduits">Nos produits</a></li>
+			<li><a href="index.php?uc=gestionConnexion&action=inscription">Inscription</a></li>
+			<li><a href="index.php?uc=gestionConnexion&action=seConnecter">Connexion</a></li>
+		</ul>
+	</div>
+
+<?php
+
 }
-	?>
+
+?>

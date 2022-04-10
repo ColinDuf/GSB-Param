@@ -33,7 +33,7 @@
             </div>
             
             <div class="form__input-group">
-                <input type="password" class="form__input" placeholder="Mot de passe" name="pass2" required>
+                <input type="password" class="form__input" placeholder="Confirmation Mot de passe" name="pass2" required>
             </div>
             <a class="form__text">
                 <a class="form__link" href="index.php?uc=gestionConnexion&action=seConnecter" >Déja inscrit ! Connecté vous ici !</a>
