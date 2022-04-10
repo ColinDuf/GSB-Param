@@ -1,34 +1,28 @@
 <?php
 $action = $_REQUEST['action'];
-switch($action)
-{
+switch ($action) {
 
-	case 'verif' :
-		{
+	case 'verif': {
 
 			$result = verifConnexion();
-			
+
 			break;
 		}
-	case 'seConnecter' :
-		{
+	case 'seConnecter': {
 			include("vues/v_connexion.php");
 			break;
 		}
-	case 'seDeconnecter' :
-		{
+	case 'seDeconnecter': {
 			include("vues/v_deconnexion.php");
 			break;
-			echo 'Utilisateur déconecté';
+			
 		}
-		case 'inscription' :
-			{
-				include("vues/v_inscription.php");
-				break;
-			}
-			case 'verifInscription' :
-				{
-					createAccount($_POST['nom'], $_POST['prenom'], $_POST['mail'], $_POST['ville'], $_POST['cp'], $_POST['rue'], $_POST['pass']);
-					break;
-				}
+	case 'inscription': {
+			include("vues/v_inscription.php");
+			break;
+		}
+	case 'verifInscription': {
+			createAccount($_POST['nom'], $_POST['prenom'], $_POST['mail'], $_POST['ville'], $_POST['cp'], $_POST['rue'], $_POST['pass']);
+			break;
+		}
 }
