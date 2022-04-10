@@ -13,7 +13,7 @@ switch($action)
 		}
 		else
 		{
-			$message = "panier vide !!";
+			$message = "Votre panier est vide !";
 			include ("vues/v_message.php");
 		}
 		break;
@@ -30,15 +30,15 @@ switch($action)
 	case 'supprimerPanier':
 		{
 			supprimerPanier();
-			include("vues/v_panier.php");
+			$message = "Panier supprimer !";
+			include("vues/v_message.php");
 			break;
 		}
 	
 	case 'passerCommande' :
 	    $n= nbProduitsDuPanier();
 		if($n>0)
-		{   // les variables suivantes servent à l'affectation des attributs value du formulaire
-			// ici le formulaire doit être vide, quand il est erroné, le formulaire sera réaffiché pré-rempli
+		{ 
 			$nom ='';$rue='';$ville ='';$cp='';$mail='';
 			include ("vues/v_commande.php");
 		}
@@ -68,8 +68,3 @@ switch($action)
 		break;
 	}
 }
-
-
-?>
-
-

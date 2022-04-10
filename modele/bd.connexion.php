@@ -13,12 +13,9 @@ function verifConnexion()
         $data = $stm->fetch();
         if ($pass == $data["mdp"]) {
             $_SESSION['user'] = $mail;
-
             header('Location: index.php?uc=accueil');
         } else {
-            echo'
-            <div class="alert alert-danger py-3 w-25 m-auto text-center" role="alert"> Identifiant ou mot de passe incorect !
-            </div>';
+            echo'<div class="alert alert-danger py-3 w-25 m-auto text-center" role="alert"> Identifiant ou mot de passe incorect !</div>';           
 
         }
     }
@@ -48,4 +45,3 @@ function getPrenom()
     $data = $result->fetch();
     return $data;
 }
-?>
