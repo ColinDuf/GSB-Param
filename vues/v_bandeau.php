@@ -10,8 +10,8 @@ if (isset($_SESSION['user'])) {
 
 	<div class="navbar">
 		<div class="nom">GSB Param</div>
-		<ul>
-			<li><a href="index.php?uc=accueil"> Accueil </a></li>
+		<ul class="mb-0">
+			<li><a href="index.php?uc=accueil">Accueil </a></li>
 			<li><a href="index.php?uc=voirProduits&action=voirCategories"> Nos produits par catégorie</a></li>
 			<li><a href="index.php?uc=voirProduits&action=nosProduits"> Nos produits </a></li>
 			<li><a href="index.php?uc=gererPanier&action=voirPanier"> Voir son panier </a></li>
@@ -25,12 +25,12 @@ if (isset($_SESSION['user'])) {
 ?>
 	<div class="navbar">
 		<div class="nom">GSB Param</div>
-		<ul>
+		<ul class="mb-0">
 			<li><a class href="index.php?uc=accueil">Accueil</a></li>
 			<li><a href="index.php?uc=voirProduits&action=voirCategories">Nos produits par catégorie</a></li>
 			<li><a href="index.php?uc=voirProduits&action=nosProduits">Nos produits</a></li>
-			<li><a href="index.php?uc=gestionConnexion&action=inscription">Inscription</a></li>
 			<li><a href="index.php?uc=gestionConnexion&action=seConnecter">Connexion</a></li>
+			<li><a href="index.php?uc=gestionConnexion&action=inscription">Inscription</a></li>
 		</ul>
 	</div>
 

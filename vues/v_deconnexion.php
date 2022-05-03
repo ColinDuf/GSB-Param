@@ -1,4 +1,4 @@
 <?php
-echo 'Utilisateur déconecté';
+echo 'Utilisateur déconnecté';
 session_destroy();
 ?>

@@ -5,7 +5,7 @@ body {
   --color-error: #cc3333;
   --color-success: #28a745;
   --border-radius: 4px;
-
+ 
   margin: 0;
   height: 100vh;
   align-items: center;
@@ -15,29 +15,29 @@ body {
   background-size: cover;
   font-family: 'Roboto', sans-serif;
 }
-
+ 
 .erreur {
   background-color: rgb(237, 210, 229);
   color: rgb(203, 28, 128);
   font-size: 1.1em;
   width: 95%;
 }
-
+ 
 .message {
   background-color: rgb(99, 184, 255);
   color: rgb(0, 0, 205);
   font-size: 1.1em;
   width: 95%;
 }
-
+ 
 #categories {
   float: left;
 }
-
+ 
 #produits {
   padding: 0 150px;
 }
-
+ 
 #categories li {
   list-style-type: none;
   list-style-image: none;
@@ -47,8 +47,8 @@ body {
   text-align: center;
   background: #ccff11;
 }
-
-
+ 
+ 
 #produits a {
   list-style-type: none;
   list-style-image: none;
@@ -58,7 +58,7 @@ body {
   height: 205px;
   font: 1em "Trebuchet MS", Arial, sans-serif;
 }
-
+ 
 .commande {
   position: relative;
   width: 180px;
@@ -67,12 +67,12 @@ body {
   padding: 10px;
   margin: 10px;
 }
-
+ 
 .commande img {
   height: 35px;
 }
-
-
+ 
+ 
 div.card {
   position: relative;
   width: 180px;
@@ -83,40 +83,40 @@ div.card {
   background-color: var(--fondC);
   box-shadow: 1px 1px 4px #bbb;
 }
-
+ 
 div.photoCard>img {
   max-width: 200px;
   max-height: 140px;
-
+ 
 }
-
+ 
 div.descrCard {
   top: 0px;
   font: .8em "Trebuchet MS", Arial, sans-serif;
 }
-
+ 
 div.prixCard {
   text-align: right;
 }
-
+ 
 div.imgCard {
   position: absolute;
   bottom: 5px;
 }
-
+ 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-
+ 
 * {
   margin: 0;
   padding: 0;
 }
-
+ 
 i {
   margin-right: 10px;
 }
-
+ 
 .container {
-
+ 
   display: flex;
   width: 400px;
   width: 2000px;
@@ -127,34 +127,34 @@ i {
   border-radius: var(--border-radius);
   background-color: #ffffff;
 }
-
+ 
 .container,
 .form_input,
 .form__button {
   font: 500 1rem 'Quicksand', sans-serif;
 }
-
+ 
 .form__title {
   margin-bottom: 2rem;
 }
-
+ 
 .form>*:first-child {
   margin-top: 0;
 }
-
+ 
 .form>*:last-child {
   margin-bottom: 0;
 }
-
+ 
 .form__message {
   text-align: center;
   margin-bottom: 1rem;
 }
-
+ 
 .form__input-group {
   margin-bottom: 1rem;
 }
-
+ 
 .form__input {
   display: block;
   width: 100%;
@@ -166,12 +166,12 @@ i {
   background: #eeeeee;
   transition: background 0.2s, border-color 0.2s;
 }
-
+ 
 .form__input:focus {
   border-color: var(--color-primary);
   background: #ffffff;
 }
-
+ 
 .form__button {
   width: 100%;
   padding: 1rem 2rem;
@@ -184,30 +184,30 @@ i {
   cursor: pointer;
   background: -webkit-linear-gradient(left, #3C9510, #BCFF10);
 }
-
+ 
 .form__button:hover {
   background: -webkit-linear-gradient(right, #3C9510, #BCFF10);
 }
-
+ 
 .form__button:active {
   transform: scale(0.98);
 }
-
+ 
 .form__text {
   text-align: center;
 }
-
+ 
 .form__link {
   color: var(--color-secondary);
   text-decoration: none;
   cursor: pointer;
-
+ 
 }
-
+ 
 .form link:hover {
   text-decoration: underline;
 }
-
+ 
 .navbar {
   margin: auto;
   padding: 13px;
@@ -217,20 +217,19 @@ i {
   color: #ffffff;
   background-color: #007f67;
 }
-
+ 
 .navbar ul li {
   list-style: none;
   display: inline-block;
   margin: 0 20px;
   position: relative;
 }
-
+ 
 .navbar ul li a {
   text-decoration: none;
   color: var(--title-color);
-  text-transform: uppercase;
 }
-
+ 
 .navbar ul li::after {
   content: '';
   height: 3px;
@@ -241,7 +240,7 @@ i {
   bottom: 0px;
   transition: 0.5s;
 }
-
+ 
 .navbar ul li:hover::after {
   width: 100%;
 }
