@@ -10,12 +10,12 @@ function verifConnexion()
         $stm->bindParam('mail', $mail);
         $stm->execute();
         $data = $stm->fetch();
-        if ($data != null && $pass == $data["mdp"]) {
+        var_dump(password_hash($pass, PASSWORD_DEFAULT));
+        if ($data != null && password_hash($pass, PASSWORD_DEFAULT) == $data["mdp"]) {
             $_SESSION['user'] = $mail;
             header('Location: index.php?uc=accueil');
         } else {
             echo'<div class="alert alert-danger py-3 w-25 m-auto text-center" role="alert"> Identifiant ou mot de passe incorect !</div>';          
- 
         }
     }
 }
@@ -24,7 +24,7 @@ function createAccount($nom, $prenom, $mail, $ville, $cp, $rue, $pass)
 {
     $monPdo = connexionPDO();
     $pass = password_hash($pass, PASSWORD_DEFAULT);
-    $req = $monPdo->prepare("INSERT INTO compte (nom, prenom, mail, ville, cp, rue, mdp) VALUES (:nom, :prenom, :mail, :ville, :cp, :rue, :mdp);");
+    $req = $monPdo->prepare("INSERT INTO compte (lvl, nom, prenom, mail, ville, cp, rue, mdp) VALUES (1,:nom, :prenom, :mail, :ville, :cp, :rue, :mdp);");
     $req->bindParam('nom', $nom);
     $req->bindParam('prenom', $prenom);
     $req->bindParam('mail', $mail);
