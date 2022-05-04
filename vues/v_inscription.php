@@ -1,8 +1,8 @@
 <html>
 <body>
 <link rel="stylesheet" href="./modele/cssConnexion.css">
-<div class="container justify-content-center">
-        <form action="index.php?uc=gestionConnexion&action=verifInscription" class="form" id="login" method="POST">
+<div class="container justify-content-center border border-secondary">
+        <form action="index.php?uc=gestionConnexion&action=verifInscription" class="form " id="login" method="POST">
             <h1 class="form_title text-center">Inscription</h1>
             <div class="form__input-group">
                 <input type="text" class="form__input" placeholder="Nom" name="nom" autofocus required>

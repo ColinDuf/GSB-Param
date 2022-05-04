@@ -5,13 +5,11 @@ function verifConnexion()
         $monPdo = connexionPDO();
         $mail = $_POST['mail'];
         $pass = $_POST['mdp'];
-        $stm = $monPdo->prepare('SELECT mail, mdp FROM compte WHERE mail = :mail AND mdp= :mdp');
-        $stm->bindParam('mdp', $pass);
+        $stm = $monPdo->prepare('SELECT mail, mdp FROM compte WHERE mail = :mail');
         $stm->bindParam('mail', $mail);
         $stm->execute();
         $data = $stm->fetch();
-        var_dump(password_hash($pass, PASSWORD_DEFAULT));
-        if ($data != null && password_hash($pass, PASSWORD_DEFAULT) == $data["mdp"]) {
+        if ($data != null && password_verify($pass, $data["mdp"])) {
             $_SESSION['user'] = $mail;
             header('Location: index.php?uc=accueil');
         } else {

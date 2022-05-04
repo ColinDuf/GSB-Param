@@ -11,7 +11,7 @@ body {
   align-items: center;
   justify-items: center;
   font-size: 18px;
-  background-color: #cccbcb;
+  background-color: #e8eae8;
   background-size: cover;
   font-family: 'Roboto', sans-serif;
 }
@@ -182,11 +182,7 @@ i {
   border-radius: var(--border-radius);
   outline: none;
   cursor: pointer;
-  background: -webkit-linear-gradient(left, #3C9510, #BCFF10);
-}
- 
-.form__button:hover {
-  background: -webkit-linear-gradient(right, #3C9510, #BCFF10);
+
 }
  
 .form__button:active {
