@@ -4,7 +4,7 @@
 
 <?php
 
-if (isset($_SESSION['user'])) {
+if (isset($_SESSION['user']) && isset($_SESSION['lvl']) && $_SESSION['lvl']=='0') {
 
 ?>
 
@@ -20,6 +20,23 @@ if (isset($_SESSION['user'])) {
 	</div>
 <?php
 
+}
+
+else if(isset($_SESSION['lvl']) && $_SESSION['lvl']=='1'){
+	?>
+	<div class="navbar">
+		<div class="nom">GSB Param</div>
+		<ul class="mb-0">
+			<li><a href="index.php?uc=accueil">Accueil </a></li>
+			<li><a href="index.php?uc=voirProduits&action=voirCategories"> Nos produits par catégorie</a></li>
+			<li><a href="index.php?uc=voirProduits&action=nosProduits"> Nos produits </a></li>
+			<li><a href="index.php?uc=gestionAdmin&action=admin"> Administrateur </a></li>
+			<li><a href="index.php?uc=gestionConnexion&action=seDeconnecter"> Déconnexion </a></li>
+		</ul>
+	</div>
+	
+	<?php
+
 } else {
 
 ?>
@@ -33,9 +50,10 @@ if (isset($_SESSION['user'])) {
 			<li><a href="index.php?uc=gestionConnexion&action=inscription">Inscription</a></li>
 		</ul>
 	</div>
-
 <?php
 
 }
+
+
 
 ?>

@@ -11,13 +11,14 @@ function verifConnexion()
         $data = $stm->fetch();
         if ($data != null && password_verify($pass, $data["mdp"])) {
             $_SESSION['user'] = $mail;
+            $_SESSION['lvl'] = getLvlAccount();
             header('Location: index.php?uc=accueil');
         } else {
-            echo'<div class="alert alert-danger py-3 w-25 m-auto text-center" role="alert"> Identifiant ou mot de passe incorect !</div>';          
+            echo '<div class="alert alert-danger py-3 w-25 m-auto text-center" role="alert"> Identifiant ou mot de passe incorect !</div>';
         }
     }
 }
- 
+
 function createAccount($nom, $prenom, $mail, $ville, $cp, $rue, $pass)
 {
     $monPdo = connexionPDO();
@@ -32,7 +33,7 @@ function createAccount($nom, $prenom, $mail, $ville, $cp, $rue, $pass)
     $req->bindParam('mdp', $pass);
     $req->execute();
 }
- 
+
 function getPrenom()
 {
     $monPdo = connexionPDO();
@@ -41,4 +42,15 @@ function getPrenom()
     $result->execute();
     $data = $result->fetch();
     return $data;
+}
+
+function getLvlAccount()
+{
+    $monPdo = connexionPDO();
+    $req = $monPdo->prepare('SELECT lvl FROM compte WHERE mail = :mail');
+    $req->bindParam('mail', $_SESSION['user']);
+    $req->execute();
+    $res = $req->fetch();
+
+    return $res['lvl'];
 }
