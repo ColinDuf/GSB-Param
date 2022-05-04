@@ -14,7 +14,7 @@ switch($action)
 	{
 		$lesCategories = getLesCategories();
 		include("vues/v_categories.php");
-  		$categorie = $_REQUEST['categorie'];
+  		$categorie = $_POST['categorie'];
 		$lesProduits = getLesProduitsDeCategorie($categorie);
 		$lib = getLesInfosCategorie($categorie)['libelle'];
 		include("vues/v_produitsDeCategorie.php");

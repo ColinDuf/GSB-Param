@@ -161,6 +161,9 @@ function getErreursSaisieCommande($nom,$rue,$ville,$cp,$mail)
 
 function AddProduit($desc, $prix, $image, $idCat)
 {
+	$destination
+	if (move_uploaded_file($tmp_name, $destination)){
+
     $monPdo = connexionPDO();
     $req = $monPdo->prepare("INSERT INTO produit (description, prix, image, idCategorie) VALUES (:desc, :prix, :image, :idCat);");
     $req->bindParam('desc', $desc);
@@ -168,6 +171,7 @@ function AddProduit($desc, $prix, $image, $idCat)
     $req->bindParam('image', $image);
     $req->bindParam('idCat', $idCat);
     $req->execute();
+}
 }
 
 ?>

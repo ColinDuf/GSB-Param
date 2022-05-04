@@ -1,5 +1,5 @@
 <form action="index.php?uc=voirProduits&action=voirProduits" method="POST">
-<select>
+<select name="categorie">
 <?php
 
 foreach( $lesCategories as $uneCategorie) 
