@@ -11,10 +11,11 @@ foreach( $lesProduits as $unProduit)
     $image = $unProduit['image'];
    
     ?>  
+    <!-- w-180 h-200 p-10 m-10 position-relative float-left -->
     <div class="card">
-            <div class="photoCard"><img src="<?php echo $image ?>" alt=image /></div>
-            <div class="descrCard"><?php echo $description ?></div>
-            <div class="prix"><?php echo $prix."€" ?></div>
+            <div class=""><img class="w-10 h-10" src="<?php echo $image ?>" alt=image /></div>
+            <div class="w-10 h-10"><?php echo $description ?></div>
+            <div class=" "><?php echo $prix."€" ?></div>
             <?php if (isset($_SESSION['user'])) { ?>
             <input type="number" id="qte" name="qte" min="1" max="50">
             <div class=""><a href="index.php?uc=voirProduits&produit=<?php echo $id ?>&action=ajouterAuPanier">

@@ -82,27 +82,11 @@ div.card {
   margin: 10px;
   background-color: var(--fondC);
   box-shadow: 1px 1px 4px #bbb;
+
 }
  
-div.photoCard>img {
-  max-width: 200px;
-  max-height: 140px;
- 
-}
- 
-div.descrCard {
-  top: 0px;
-  font: .8em "Trebuchet MS", Arial, sans-serif;
-}
- 
-div.prixCard {
-  text-align: right;
-}
- 
-div.imgCard {
-  position: absolute;
-  bottom: 5px;
-}
+
+
  
 @import url('https://fonts.googleapis.com/css?family=Roboto');
  
