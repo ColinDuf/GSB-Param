@@ -22,4 +22,4 @@
 		<a onclick="return confirm('Voulez-vous vraiment supprimer votre panier ?');" href="index.php?uc=gererPanier&action=supprimerPanier" ><img src="images/corbeille.png" title="SupprimerPanier" alt="SupprimerPanier" ></a>
 	</div>
 </div>
-<br />
+<br/>
