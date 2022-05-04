@@ -32,7 +32,7 @@ if (isset($_SESSION['user']) && isset($_SESSION['lvl']) && $_SESSION['lvl'] == '
 			<li><a href="index.php?uc=accueil">Accueil </a></li>
 			<li><a href="index.php?uc=voirProduits&action=voirCategories"> Nos produits par catégorie</a></li>
 			<li><a href="index.php?uc=voirProduits&action=nosProduits"> Nos produits </a></li>
-			<li><a href="index.php?uc=gestionAdmin&action=admin"> Administrateur </a></li>
+			<li><a href="index.php?uc=gestionProduits&action=admin"> Administrateur </a></li>
 			<li><a href="index.php?uc=gestionConnexion&action=seDeconnecter"> Déconnexion </a></li>
 		</ul>
 	</div>

@@ -22,4 +22,8 @@ switch ($action) {
 			createAccount($_POST['nom'], $_POST['prenom'], $_POST['mail'], $_POST['ville'], $_POST['cp'], $_POST['rue'], $_POST['pass']);
 			break;
 		}
+		case 'admin': {
+            include("vues/v_admin.php");
+            break;
+        }
 }

@@ -1,14 +1,25 @@
-<form action="index.php?uc=voirProduits&action=voirCategories" method="POST">
-<select>
-<?php
+<div class="form_title text-center ">Panel administrateur</div>
 
-foreach( $lesCategories as $uneCategorie) 
-{
-	echo '<option value="'.$uneCategorie['id'].'">'.$uneCategorie['libelle'].' </option>';
-	$idCategorie = $uneCategorie['id'];
-	$libCategorie = $uneCategorie['libelle'];
-} echo $libCategorie ?></a>
-?>
-</select>
-        <button class ="btn btn-success" type="submit" value="Valider" name="valider">Valider</button>
-        </form>
+<form action="index.php?uc=gestionProduits&action=AddProduit" class="form w-50 mx-auto" id="login" method="POST">
+
+	Ajout nouveau produit :
+
+	<div class="form__input-group">
+		<input type="text" class="form__input" placeholder="Description" name="desc" autofocus required>
+	</div>
+
+	<div class="form__input-group">
+		<input type="text" class="form__input" placeholder="Prix" name="prix">
+	</div>
+
+	<div class="form__input-group">
+	<input class="form-control" type="file" id="image" name="image">
+	</div>
+
+	<div class="form__input-group">
+		<input type="text" class="form__input" placeholder="Categorie" name="idCat">
+	</div>
+
+	<button onclick="return confirm('Voulez-vous vraiment ajouter ce produit dans la boutique ?');" class="btn btn-outline-success form-control" type="submit">Ajouter</button>
+
+</form>
