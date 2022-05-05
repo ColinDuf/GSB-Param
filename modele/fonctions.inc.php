@@ -19,11 +19,15 @@ function ajouterAuPanier($idProduit)
 	$ok = true;
 	if(in_array($idProduit,$_SESSION['produits']))
 	{
+		$index = array_search($idProduit,$_SESSION['produits']);
+		$qte = (int) $qte;
+		$_SESSION['qte'][$index] += $qte;
 		$ok = false;
 	}
 	else
 	{
 		$_SESSION['produits'][]= $idProduit; // l'indice n'est pas précisé : il sera automatiquement celui qui suit le dernier occupé
+		$_SESSION['qte'][]=$qte;
 	}
 	return $ok;
 }
@@ -161,8 +165,8 @@ function getErreursSaisieCommande($nom,$rue,$ville,$cp,$mail)
 
 function AddProduit($desc, $prix, $image, $idCat)
 {
-	$destination
-	if (move_uploaded_file($tmp_name, $destination)){
+	/* $destination
+	if (move_uploaded_file($tmp_name, $destination)){ */
 
     $monPdo = connexionPDO();
     $req = $monPdo->prepare("INSERT INTO produit (description, prix, image, idCategorie) VALUES (:desc, :prix, :image, :idCat);");
@@ -172,6 +176,6 @@ function AddProduit($desc, $prix, $image, $idCat)
     $req->bindParam('idCat', $idCat);
     $req->execute();
 }
-}
+
 
 ?>

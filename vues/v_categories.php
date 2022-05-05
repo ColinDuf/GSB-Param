@@ -1,14 +1,22 @@
 <form action="index.php?uc=voirProduits&action=voirProduits" method="POST">
-<select name="categorie">
-<?php
+<div class="">
+        <div class="col-lg-2">
+                <select class="form-control" name="categorie">
+                        <option value ="" disabled selected>Choisir une catégorie</option>
+                <?php
 
-foreach( $lesCategories as $uneCategorie) 
-{
-	echo '<option value="'.$uneCategorie['id'].'">'.$uneCategorie['libelle'].' </option>';
+                foreach( $lesCategories as $uneCategorie) 
+                {
+                        echo '<option value="'.$uneCategorie['id'].'">'.$uneCategorie['libelle'].'  </option>';
 
-} 
+                } 
 
-?>
-</select>
-        <button class ="btn btn-success" type="submit" value="Valider" name="valider">Valider</button>
-        </form>
+                ?>
+                </select>
+        </div>
+        <div class="col-lg-1">
+                        <button class ="btn btn-success form-control" type="submit" value="Valider" name="valider">Valider</button>
+        </div>
+                </div>
+<hr>
+</form>

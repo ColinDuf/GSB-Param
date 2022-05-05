@@ -14,7 +14,7 @@ function verifConnexion()
             $_SESSION['lvl'] = getLvlAccount();
             header('Location: index.php?uc=accueil');
         } else {
-            echo '<div class="alert alert-danger py-3 w-25 m-auto text-center" role="alert"> Identifiant ou mot de passe incorect !</div>';
+            echo '<div class="alert alert-danger py-3 w-25 m-auto text-center" role="alert"> Identifiant ou mot de passe incorrect !</div>';
         }
     }
 }
