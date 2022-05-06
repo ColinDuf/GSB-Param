@@ -15,6 +15,10 @@
             <div class="form__input-group">
                 <input type="email" class="form__input" placeholder="Email" name="mail" required>
             </div>
+
+            <div class="form__input-group">
+                <input type="text" class="form__input" placeholder="Téléphone" name="tel" required>
+            </div>
  
             <div class="form__input-group">
                 <input type="text" class="form__input" placeholder="Ville" name="ville" required>
@@ -25,11 +29,11 @@
             </div>
            
             <div class="form__input-group">
-                <input type="text" class="form__input" placeholder="Rue" name="rue" required>
+                <input type="text" class="form__input" placeholder="Adresse" name="adresse" required>
             </div>
            
             <div class="form__input-group">
-                <input type="password" class="form__input" placeholder="Mot de passe" name="pass" required>
+                <input type="password" class="form__input" placeholder="Mot de passe" name="mdp" required>
             </div>
            
             <div class="form__input-group">

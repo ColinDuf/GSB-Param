@@ -4,12 +4,12 @@ function verifConnexion()
     if (isset($_POST['submit'])) {
         $monPdo = connexionPDO();
         $mail = $_POST['mail'];
-        $pass = $_POST['mdp'];
+        $mdp = $_POST['mdp'];
         $stm = $monPdo->prepare('SELECT mail, mdp FROM compte WHERE mail = :mail');
         $stm->bindParam('mail', $mail);
         $stm->execute();
         $data = $stm->fetch();
-        if ($data != null && password_verify($pass, $data["mdp"])) {
+        if ($data != null && password_verify($mdp, $data["mdp"])) {
             $_SESSION['user'] = $mail;
             $_SESSION['lvl'] = getLvlAccount();
             header('Location: index.php?uc=accueil');
@@ -19,18 +19,19 @@ function verifConnexion()
     }
 }
 
-function createAccount($nom, $prenom, $mail, $ville, $cp, $rue, $pass)
+function createAccount($mail, $nom, $prenom, $tel, $ville, $adresse, $cp, $mdp)
 {
     $monPdo = connexionPDO();
-    $pass = password_hash($pass, PASSWORD_DEFAULT);
-    $req = $monPdo->prepare("INSERT INTO compte (lvl, nom, prenom, mail, ville, cp, rue, mdp) VALUES (1,:nom, :prenom, :mail, :ville, :cp, :rue, :mdp);");
+    $mdp = password_hash($mdp, PASSWORD_DEFAULT);
+    $req = $monPdo->prepare("INSERT INTO compte ( mail, nom, prenom, tel, ville, adresse, cp, mdp, niv) VALUES (:mail, :nom, :prenom, :tel, :ville, :adresse, :cp, :mdp, 1);");
+    $req->bindParam('mail', $mail);
     $req->bindParam('nom', $nom);
     $req->bindParam('prenom', $prenom);
-    $req->bindParam('mail', $mail);
+    $req->bindParam('tel', $tel);
     $req->bindParam('ville', $ville);
+    $req->bindParam('adresse', $adresse);
     $req->bindParam('cp', $cp);
-    $req->bindParam('rue', $rue);
-    $req->bindParam('mdp', $pass);
+    $req->bindParam('mdp', $mdp);
     $req->execute();
 }
 

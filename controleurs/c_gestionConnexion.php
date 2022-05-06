@@ -19,7 +19,7 @@ switch ($action) {
 			break;
 		}
 	case 'verifInscription': {
-			createAccount($_POST['nom'], $_POST['prenom'], $_POST['mail'], $_POST['ville'], $_POST['cp'], $_POST['rue'], $_POST['pass']);
+			createAccount($_POST['mail'], $_POST['nom'], $_POST['prenom'], $_POST['tel'], $_POST['ville'], $_POST['adresse'], $_POST['cp'], $_POST['mdp']);
 			break;
 		}
 		case 'admin': {
