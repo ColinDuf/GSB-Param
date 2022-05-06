@@ -9,7 +9,7 @@
 <body>
 <?php
 
-if (isset($_SESSION['user']) && isset($_SESSION['lvl']) && $_SESSION['lvl'] == '1') {
+if (isset($_SESSION['user']) && isset($_SESSION['niv']) && $_SESSION['niv'] == '1') {
 
 ?>
 
@@ -26,7 +26,7 @@ if (isset($_SESSION['user']) && isset($_SESSION['lvl']) && $_SESSION['lvl'] == '
 	</div>
 <?php
 
-} else if (isset($_SESSION['lvl']) && $_SESSION['lvl'] == '2') {
+} else if (isset($_SESSION['niv']) && $_SESSION['niv'] == '2') {
 ?>
 	<div class="navbar">
 		<div class="nom">GSB Param</div>

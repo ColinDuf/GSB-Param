@@ -11,7 +11,7 @@ function verifConnexion()
         $data = $stm->fetch();
         if ($data != null && password_verify($mdp, $data["mdp"])) {
             $_SESSION['user'] = $mail;
-            $_SESSION['lvl'] = getLvlAccount();
+            $_SESSION['niv'] = getNivAccount();
             header('Location: index.php?uc=accueil');
         } else {
             echo '<div class="alert alert-danger py-3 w-25 m-auto text-center" role="alert"> Identifiant ou mot de passe incorrect !</div>';
@@ -45,13 +45,13 @@ function getPrenom()
     return $data;
 }
 
-function getLvlAccount()
+function getNivAccount()
 {
     $monPdo = connexionPDO();
-    $req = $monPdo->prepare('SELECT lvl FROM compte WHERE mail = :mail');
+    $req = $monPdo->prepare('SELECT niv FROM compte WHERE mail = :mail');
     $req->bindParam('mail', $_SESSION['user']);
     $req->execute();
     $res = $req->fetch();
 
-    return $res['lvl'];
+    return $res['niv'];
 }
