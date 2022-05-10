@@ -1,6 +1,6 @@
 <?php
 
-$id = $lesDetails['idProduit'];
+$idDetail = $lesDetails['idProduit'];
 $description = $lesDetails['description'];
 $nom = $lesDetails['nomProduit'];
 $prix = $lesDetails['prix'];
@@ -19,13 +19,19 @@ $categorie = $lesDetails['nomCategorie'];
 
 <?php
 
+foreach ($lesAvis as $unAvis){
+
+$idAvis = $unAvis['idAvis'];
 
 
-
-
-
-
+}
 
 
 
 ?>
+
+<div> Nom : <?php echo $nom; ?> </div>
+
+
+
+
