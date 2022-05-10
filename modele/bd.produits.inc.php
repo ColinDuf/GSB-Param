@@ -201,6 +201,13 @@ include_once 'bd.inc.php';
 		return $avis;
 	}
 
-
-
+	function addAvis($note, $avis)
+{
+    $monPdo = connexionPDO();
+    $req = $monPdo->prepare("INSERT INTO compte ( idAvis, note, avis, idCompte, idProduit ) VALUES (:idAvis, :note, :avis, :idCompte, :idProduit);");
+    $req->bindParam('note', $note);
+    $req->bindParam('avis', $avis);
+    $req->execute();
+}
+	
 ?>

@@ -19,19 +19,30 @@ $categorie = $lesDetails['nomCategorie'];
 
 <?php
 
-foreach ($lesAvis as $unAvis){
+foreach ($lesAvis as $unAvis) {
 
-$idAvis = $unAvis['idAvis'];
-
-
+    $idAvis = $unAvis['idAvis'];
+    $avis = $unAvis['avis'];
+    $idCompte = $unAvis['idCompte'];
 }
-
-
-
 ?>
 
-<div> Nom : <?php echo $nom; ?> </div>
+<hr>
+<div> Avis : <?php echo $avis; ?> </div>
 
+<div class="container justify-content-center border border-secondary">
+        <form action="index.php?uc=voirProduits&action=addAvis" class="form " id="avis" method="POST">
+            <h1 class="form_title text-center">Ecrire un avis</h1>
+            <div class="form__input-group">
+            <input type="number" id="note" name="note" min="1" value="0" max="5">
+            </div>
+ 
+            <div class="form__input-group">
+                <input type="text" class="form__input" placeholder="Commentaire" name="avis" required>
+            </div>
 
-
-
+            <button class="btn btn-outline-success form-control" type="submit">Valider</button>
+ 
+           
+        </form>
+    </div>

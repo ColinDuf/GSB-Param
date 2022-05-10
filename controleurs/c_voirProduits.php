@@ -38,6 +38,7 @@ switch ($action) {
 			$_REQUEST['produit'];
 			$lesDetails = getLesDetails();
 			$lesAvis = getLesAvis();
+			$lesComptes = getInfo();
 			include("vues/v_detail.php");
 			break;
 		}
@@ -45,6 +46,12 @@ switch ($action) {
 	case 'voirCategories': {
 			$lesCategories = getLesCategories();
 			include("vues/v_categories.php");
+			break;
+		}
+
+	case 'addAvis': {
+		
+			addAvis($_POST['note'], $_POST['avis'], $_POST['idDetail']);
 			break;
 		}
 }
