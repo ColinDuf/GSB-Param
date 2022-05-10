@@ -10,7 +10,7 @@
         $id = $unProduit['idProduit'];
         $description = $unProduit['nom'];
         $prix = $unProduit['prix'];
-        $image = $unProduit['hhhimage'];
+        $image = $unProduit['image'];
     ?>
         <div class="card">
             <div class="photoCard"><img src="<?php echo $image ?>" alt=image /></div>
