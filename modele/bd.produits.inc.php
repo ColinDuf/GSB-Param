@@ -21,7 +21,7 @@ include_once 'bd.inc.php';
 		try 
 		{
         $monPdo = connexionPDO();
-		$req = 'select idCategorie, nom from categorie';
+		$req = 'select idCategorie, acronyme, libelle from categorie';
 		$res = $monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
@@ -43,7 +43,7 @@ include_once 'bd.inc.php';
 		try 
 		{
         $monPdo = connexionPDO();
-		$req = 'SELECT idCategorie, nom FROM categorie WHERE idCategorie="'.$idCategorie.'"';
+		$req = 'SELECT idCategorie, acronyme, libelle FROM categorie WHERE idCategorie="'.$idCategorie.'"';
 		$res = $monPdo->query($req);
 		$laLigne = $res->fetch();
 		return $laLigne;
@@ -185,7 +185,7 @@ include_once 'bd.inc.php';
 
 	function getLesDetails(){
 		$monPdo=connexionPDO();
-		$req = 'select idProduit, produit.nom as nomProduit, description, image, prix, marque.nom as nomMarque, categorie.nom as nomCategorie from produit INNER JOIN marque on marque.idMarque = produit.idMarque JOIN categorie ON categorie.idCategorie = produit.idCategorie where idProduit='.$_REQUEST['produit'];
+		$req = 'select idProduit, produit.nom as nomProduit, description, image, prix, marque.nom as nomMarque, categorie.libelle as nomCategorie from produit INNER JOIN marque on marque.idMarque = produit.idMarque JOIN categorie ON categorie.idCategorie = produit.idCategorie where idProduit='.$_REQUEST['produit'];
 		$res = $monPdo->query($req);
 		$detail = $res->fetch();
 		

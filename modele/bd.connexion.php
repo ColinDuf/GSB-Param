@@ -44,7 +44,7 @@ function getInfo()
     $req->execute();
     $res = $req->fetch();
 
-    return $res['info'];
+    return $res;
 }
 
 function getNivAccount()

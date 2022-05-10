@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: May 10, 2022 at 09:50 AM
--- Server version: 5.7.36
--- PHP Version: 7.4.26
+-- Hôte : 127.0.0.1:3306
+-- Généré le : mar. 10 mai 2022 à 13:33
+-- Version du serveur : 5.7.36
+-- Version de PHP : 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `gsbparam`
+-- Base de données : `gsbparam`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `avis`
+-- Structure de la table `avis`
 --
 
 DROP TABLE IF EXISTS `avis`;
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `avis` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Dumping data for table `avis`
+-- Déchargement des données de la table `avis`
 --
 
 INSERT INTO `avis` (`idAvis`, `note`, `avis`, `idCompte`, `idProduit`) VALUES
@@ -49,28 +49,29 @@ INSERT INTO `avis` (`idAvis`, `note`, `avis`, `idCompte`, `idProduit`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorie`
+-- Structure de la table `categorie`
 --
 
 DROP TABLE IF EXISTS `categorie`;
 CREATE TABLE IF NOT EXISTS `categorie` (
   `idCategorie` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(50) COLLATE utf8_bin NOT NULL,
+  `acronyme` varchar(50) COLLATE utf8_bin NOT NULL,
+  `libelle` varchar(50) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`idCategorie`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Dumping data for table `categorie`
+-- Déchargement des données de la table `categorie`
 --
 
-INSERT INTO `categorie` (`idCategorie`, `nom`) VALUES
-(1, 'CH'),
-(2, 'CP');
+INSERT INTO `categorie` (`idCategorie`, `acronyme`, `libelle`) VALUES
+(1, 'CH', 'Cheveux'),
+(2, 'CP', 'Corps');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `commande`
+-- Structure de la table `commande`
 --
 
 DROP TABLE IF EXISTS `commande`;
@@ -85,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `commande` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `compte`
+-- Structure de la table `compte`
 --
 
 DROP TABLE IF EXISTS `compte`;
@@ -105,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `compte` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Dumping data for table `compte`
+-- Déchargement des données de la table `compte`
 --
 
 INSERT INTO `compte` (`id`, `mail`, `nom`, `prenom`, `tel`, `ville`, `adresse`, `cp`, `mdp`, `niv`) VALUES
@@ -115,7 +116,7 @@ INSERT INTO `compte` (`id`, `mail`, `nom`, `prenom`, `tel`, `ville`, `adresse`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contenance`
+-- Structure de la table `contenance`
 --
 
 DROP TABLE IF EXISTS `contenance`;
@@ -127,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `contenance` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Dumping data for table `contenance`
+-- Déchargement des données de la table `contenance`
 --
 
 INSERT INTO `contenance` (`idContenance`, `volume`, `nom`) VALUES
@@ -137,7 +138,7 @@ INSERT INTO `contenance` (`idContenance`, `volume`, `nom`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contenir`
+-- Structure de la table `contenir`
 --
 
 DROP TABLE IF EXISTS `contenir`;
@@ -153,7 +154,7 @@ CREATE TABLE IF NOT EXISTS `contenir` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detenir`
+-- Structure de la table `detenir`
 --
 
 DROP TABLE IF EXISTS `detenir`;
@@ -167,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `detenir` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `faire`
+-- Structure de la table `faire`
 --
 
 DROP TABLE IF EXISTS `faire`;
@@ -181,7 +182,7 @@ CREATE TABLE IF NOT EXISTS `faire` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `marque`
+-- Structure de la table `marque`
 --
 
 DROP TABLE IF EXISTS `marque`;
@@ -192,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `marque` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Dumping data for table `marque`
+-- Déchargement des données de la table `marque`
 --
 
 INSERT INTO `marque` (`idMarque`, `nom`) VALUES
@@ -202,7 +203,7 @@ INSERT INTO `marque` (`idMarque`, `nom`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produit`
+-- Structure de la table `produit`
 --
 
 DROP TABLE IF EXISTS `produit`;
@@ -220,7 +221,7 @@ CREATE TABLE IF NOT EXISTS `produit` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Dumping data for table `produit`
+-- Déchargement des données de la table `produit`
 --
 
 INSERT INTO `produit` (`idProduit`, `nom`, `description`, `image`, `prix`, `idMarque`, `idCategorie`) VALUES
@@ -234,7 +235,7 @@ INSERT INTO `produit` (`idProduit`, `nom`, `description`, `image`, `prix`, `idMa
 -- --------------------------------------------------------
 
 --
--- Table structure for table `typecompte`
+-- Structure de la table `typecompte`
 --
 
 DROP TABLE IF EXISTS `typecompte`;
@@ -245,7 +246,7 @@ CREATE TABLE IF NOT EXISTS `typecompte` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Dumping data for table `typecompte`
+-- Déchargement des données de la table `typecompte`
 --
 
 INSERT INTO `typecompte` (`niv`, `libelle`) VALUES
@@ -253,45 +254,45 @@ INSERT INTO `typecompte` (`niv`, `libelle`) VALUES
 (2, 'Administrateur');
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `avis`
+-- Contraintes pour la table `avis`
 --
 ALTER TABLE `avis`
   ADD CONSTRAINT `Avis_Compte_FK` FOREIGN KEY (`idCompte`) REFERENCES `compte` (`id`),
   ADD CONSTRAINT `FK_avis_idProduit` FOREIGN KEY (`idProduit`) REFERENCES `produit` (`idProduit`);
 
 --
--- Constraints for table `compte`
+-- Contraintes pour la table `compte`
 --
 ALTER TABLE `compte`
   ADD CONSTRAINT `Compte_TypeCompte_FK` FOREIGN KEY (`niv`) REFERENCES `typecompte` (`niv`);
 
 --
--- Constraints for table `contenir`
+-- Contraintes pour la table `contenir`
 --
 ALTER TABLE `contenir`
   ADD CONSTRAINT `Contenir_Contenance_FK` FOREIGN KEY (`idContenance`) REFERENCES `contenance` (`idContenance`),
   ADD CONSTRAINT `Contenir_Produit0_FK` FOREIGN KEY (`idProduit`) REFERENCES `produit` (`idProduit`);
 
 --
--- Constraints for table `detenir`
+-- Contraintes pour la table `detenir`
 --
 ALTER TABLE `detenir`
   ADD CONSTRAINT `Detenir_Commande0_FK` FOREIGN KEY (`idCommande`) REFERENCES `commande` (`idCommande`),
   ADD CONSTRAINT `Detenir_Produit_FK` FOREIGN KEY (`idProduit`) REFERENCES `produit` (`idProduit`);
 
 --
--- Constraints for table `faire`
+-- Contraintes pour la table `faire`
 --
 ALTER TABLE `faire`
   ADD CONSTRAINT `Faire_Commande_FK` FOREIGN KEY (`idCommande`) REFERENCES `commande` (`idCommande`),
   ADD CONSTRAINT `Faire_Compte0_FK` FOREIGN KEY (`id`) REFERENCES `compte` (`id`);
 
 --
--- Constraints for table `produit`
+-- Contraintes pour la table `produit`
 --
 ALTER TABLE `produit`
   ADD CONSTRAINT `Produit_Categorie0_FK` FOREIGN KEY (`idCategorie`) REFERENCES `categorie` (`idCategorie`),

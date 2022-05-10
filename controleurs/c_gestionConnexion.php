@@ -29,8 +29,8 @@ switch ($action) {
 		}
 
 	case 'profil': {
+		$info = getInfo();
 			include("vues/v_profil.php");
-			ump(getInfo());
 			break;
 		}
 }

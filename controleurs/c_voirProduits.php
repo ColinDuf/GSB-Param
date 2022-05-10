@@ -15,10 +15,8 @@ switch ($action) {
 				echo '<div class="alert alert-danger py-3 w-25 m-auto text-center" role="alert"> Veuillez séléctionner une catégorie !</div>';
 			} else {
 				$categorie = $_POST['categorie'];
-
-
 				$lesProduits = getLesProduitsDeCategorie($categorie);
-				$lib = getLesInfosCategorie($categorie)['nom'];
+				$lib = getLesInfosCategorie($categorie);
 				include("vues/v_produitsDeCategorie.php");
 			}
 			break;
@@ -32,21 +30,7 @@ switch ($action) {
 			$idProduit = $_REQUEST['produit'];
 			$qte = $_POST['qte'];
 			$ok = ajouterAuPanier($idProduit, $qte);
-			/* if(!$ok)
-		{
-			$message = "Cet article est déjà dans le panier !!";
-			include("vues/v_message.php");
-		}
-		else{
-		// on recharge la même page ( NosProduits si pas categorie passée dans l'url')
-		if (isset($_REQUEST['categorie'])){
-			$categorie = $_REQUEST['categorie'];
-			header('Location:index.php?uc=voirProduits&action=voirProduits&categorie='.$categorie);
-		}
-		else 
-		} */
-			header('Location:index.php?uc=voirProduits&action=nosProduits');
-
+			header('Location:index.php?uc=gererPanier&action=voirPanier');
 			break;
 		}
 

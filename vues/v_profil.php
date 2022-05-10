@@ -1,9 +1,4 @@
-Détail du profil :
+<div class=""> Détail du profil :</div>
 
-<?php
+<div class="">Nom de l'utilisateur : <?php echo $info['nom'] ?></div>
 
-
-
-echo $_SESSION['user'];
-
-?>
