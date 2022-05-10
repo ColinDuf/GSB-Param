@@ -21,7 +21,7 @@ include_once 'bd.inc.php';
 		try 
 		{
         $monPdo = connexionPDO();
-		$req = 'select id, libelle from categorie';
+		$req = 'select idCategorie, nom from categorie';
 		$res = $monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
@@ -43,7 +43,7 @@ include_once 'bd.inc.php';
 		try 
 		{
         $monPdo = connexionPDO();
-		$req = 'SELECT id, libelle FROM categorie WHERE id="'.$idCategorie.'"';
+		$req = 'SELECT idCategorie, nom FROM categorie WHERE idCategorie="'.$idCategorie.'"';
 		$res = $monPdo->query($req);
 		$laLigne = $res->fetch();
 		return $laLigne;
@@ -67,7 +67,7 @@ include_once 'bd.inc.php';
 		try 
 		{
         $monPdo = connexionPDO();
-	    $req='select id, description, prix, image, idCategorie from produit where idCategorie ="'.$idCategorie.'"';
+	    $req='select idProduit, nom, image, prix, idMarque, idCategorie from produit where idCategorie ="'.$idCategorie.'"';
 		$res = $monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes; 
@@ -95,7 +95,7 @@ include_once 'bd.inc.php';
 		{
 			foreach($desIdProduit as $unIdProduit)
 			{
-				$req = 'select id, description, prix, image, idCategorie from produit where id = "'.$unIdProduit.'"';
+				$req = 'select idProduit, nom, image, prix, idMarque, idCategorie from produit where id = "'.$unIdProduit.'"';
 				$res = $monPdo->query($req);
 				$unProduit = $res->fetch();
 				$lesProduits[] = $unProduit;
@@ -176,7 +176,7 @@ include_once 'bd.inc.php';
 
 	function getLesProduits(){
 		$monPdo=connexionPDO();
-		$req = 'select id, description, prix, image, idCategorie from produit';
+		$req = 'select idProduit, nom, image, prix, idMarque, idCategorie from produit';
 		$res = $monPdo->query($req);
 		$prod = $res->fetchall();
 		

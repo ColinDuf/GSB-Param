@@ -1,160 +1,69 @@
-#------------------------------------------------------------
-#        Script MySQL.
-#------------------------------------------------------------
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1:3306
+-- Generation Time: May 10, 2022 at 06:28 AM
+-- Server version: 5.7.36
+-- PHP Version: 7.4.26
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
-#------------------------------------------------------------
-# Table: TypeCompte
-#------------------------------------------------------------
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-CREATE TABLE TypeCompte(
-        niv     Int NOT NULL ,
-        libelle Varchar (50) NOT NULL
-	,CONSTRAINT TypeCompte_PK PRIMARY KEY (niv)
-)ENGINE=InnoDB;
+--
+-- Database: `gsbparam`
+--
 
+-- --------------------------------------------------------
 
-#------------------------------------------------------------
-# Table: Compte
-#------------------------------------------------------------
+--
+-- Table structure for table `produit`
+--
 
-CREATE TABLE Compte(
-        id      Int  Auto_increment  NOT NULL ,
-        mail    Varchar (50) NOT NULL ,
-        nom     Varchar (50) NOT NULL ,
-        prenom  Varchar (50) NOT NULL ,
-        tel     Varchar (50) NOT NULL ,
-        ville   Varchar (50) NOT NULL ,
-        adresse Varchar (50) NOT NULL ,
-        cp      Int NOT NULL ,
-        mdp     Varchar (255) NOT NULL ,
-        niv     Int NOT NULL
-	,CONSTRAINT Compte_PK PRIMARY KEY (id)
+DROP TABLE IF EXISTS `produit`;
+CREATE TABLE IF NOT EXISTS `produit` (
+  `idProduit` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(50) COLLATE utf8_bin NOT NULL,
+  `image` varchar(50) COLLATE utf8_bin NOT NULL,
+  `prix` float NOT NULL,
+  `idMarque` int(11) NOT NULL,
+  `idCategorie` int(11) NOT NULL,
+  PRIMARY KEY (`idProduit`),
+  KEY `Produit_Marque_FK` (`idMarque`),
+  KEY `Produit_Categorie0_FK` (`idCategorie`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-	,CONSTRAINT Compte_TypeCompte_FK FOREIGN KEY (niv) REFERENCES TypeCompte(niv)
-)ENGINE=InnoDB;
+--
+-- Dumping data for table `produit`
+--
 
+INSERT INTO `produit` (`idProduit`, `nom`, `image`, `prix`, `idMarque`, `idCategorie`) VALUES
+(1, 'Dop Citron', 'images/dopCitron.png', 2, 1, 1),
+(2, 'Dop Orange', 'images/dopOrange.png', 2, 1, 1),
+(3, 'Dop Amande', 'images/dopAmande.jpg', 2, 1, 1),
+(4, 'Petit Marseillais Lait', 'images/marseillaisLait.png', 3, 2, 2),
+(5, 'Petit Marseillais Vanille', 'images/marseillaisPeche.png', 3, 2, 2),
+(6, 'Petit Marseillais Vanille', 'images/marseillaisVanille.png', 3, 2, 2);
 
-#------------------------------------------------------------
-# Table: Avis
-#------------------------------------------------------------
+--
+-- Constraints for dumped tables
+--
 
-CREATE TABLE Avis(
-        idAvis Int  Auto_increment  NOT NULL ,
-        note   Varchar (50) NOT NULL ,
-        avis   Int NOT NULL ,
-        id     Int NOT NULL
-	,CONSTRAINT Avis_PK PRIMARY KEY (idAvis)
+--
+-- Constraints for table `produit`
+--
+ALTER TABLE `produit`
+  ADD CONSTRAINT `Produit_Categorie0_FK` FOREIGN KEY (`idCategorie`) REFERENCES `categorie` (`idCategorie`),
+  ADD CONSTRAINT `Produit_Marque_FK` FOREIGN KEY (`idMarque`) REFERENCES `marque` (`idMarque`);
+COMMIT;
 
-	,CONSTRAINT Avis_Compte_FK FOREIGN KEY (id) REFERENCES Compte(id)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: Commande
-#------------------------------------------------------------
-
-CREATE TABLE Commande(
-        idCommande Int  Auto_increment  NOT NULL ,
-        date       Date NOT NULL ,
-        etat       Int NOT NULL ,
-        montant    Float NOT NULL
-	,CONSTRAINT Commande_PK PRIMARY KEY (idCommande)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: Marque
-#------------------------------------------------------------
-
-CREATE TABLE Marque(
-        idMarque Int  Auto_increment  NOT NULL ,
-        nom      Varchar (50) NOT NULL
-	,CONSTRAINT Marque_PK PRIMARY KEY (idMarque)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: Categorie
-#------------------------------------------------------------
-
-CREATE TABLE Categorie(
-        idCategorie Int  Auto_increment  NOT NULL ,
-        nom         Varchar (50) NOT NULL
-	,CONSTRAINT Categorie_PK PRIMARY KEY (idCategorie)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: Produit
-#------------------------------------------------------------
-
-CREATE TABLE Produit(
-        idProduit   Int  Auto_increment  NOT NULL ,
-        nom         Varchar (50) NOT NULL ,
-        image       Varchar (50) NOT NULL ,
-        prix        Float NOT NULL ,
-        idMarque    Int NOT NULL ,
-        idCategorie Int NOT NULL
-	,CONSTRAINT Produit_PK PRIMARY KEY (idProduit)
-
-	,CONSTRAINT Produit_Marque_FK FOREIGN KEY (idMarque) REFERENCES Marque(idMarque)
-	,CONSTRAINT Produit_Categorie0_FK FOREIGN KEY (idCategorie) REFERENCES Categorie(idCategorie)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: Contenance
-#------------------------------------------------------------
-
-CREATE TABLE Contenance(
-        idContenance Int  Auto_increment  NOT NULL ,
-        volume       Float NOT NULL ,
-        nom          Varchar (50) NOT NULL
-	,CONSTRAINT Contenance_PK PRIMARY KEY (idContenance)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: Faire
-#------------------------------------------------------------
-
-CREATE TABLE Faire(
-        idCommande Int NOT NULL ,
-        id         Int NOT NULL
-	,CONSTRAINT Faire_PK PRIMARY KEY (idCommande,id)
-
-	,CONSTRAINT Faire_Commande_FK FOREIGN KEY (idCommande) REFERENCES Commande(idCommande)
-	,CONSTRAINT Faire_Compte0_FK FOREIGN KEY (id) REFERENCES Compte(id)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: Detenir
-#------------------------------------------------------------
-
-CREATE TABLE Detenir(
-        idProduit  Int NOT NULL ,
-        idCommande Int NOT NULL
-	,CONSTRAINT Detenir_PK PRIMARY KEY (idProduit,idCommande)
-
-	,CONSTRAINT Detenir_Produit_FK FOREIGN KEY (idProduit) REFERENCES Produit(idProduit)
-	,CONSTRAINT Detenir_Commande0_FK FOREIGN KEY (idCommande) REFERENCES Commande(idCommande)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: Contenir
-#------------------------------------------------------------
-
-CREATE TABLE Contenir(
-        idContenance Int NOT NULL ,
-        idProduit    Int NOT NULL ,
-        stock        Int NOT NULL ,
-        prix         Decimal NOT NULL
-	,CONSTRAINT Contenir_PK PRIMARY KEY (idContenance,idProduit)
-
-	,CONSTRAINT Contenir_Contenance_FK FOREIGN KEY (idContenance) REFERENCES Contenance(idContenance)
-	,CONSTRAINT Contenir_Produit0_FK FOREIGN KEY (idProduit) REFERENCES Produit(idProduit)
-)ENGINE=InnoDB;
-
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

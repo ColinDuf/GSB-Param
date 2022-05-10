@@ -7,7 +7,7 @@
 
                 foreach( $lesCategories as $uneCategorie) 
                 {
-                        echo '<option value="'.$uneCategorie['id'].'">'.$uneCategorie['libelle'].'  </option>';
+                        echo '<option value="'.$uneCategorie['idCategorie'].'">'.$uneCategorie['nom'].'  </option>';
 
                 } 
 

@@ -18,7 +18,7 @@ switch ($action) {
 
 
 				$lesProduits = getLesProduitsDeCategorie($categorie);
-				$lib = getLesInfosCategorie($categorie)['libelle'];
+				$lib = getLesInfosCategorie($categorie)['nom'];
 				include("vues/v_produitsDeCategorie.php");
 			}
 			break;

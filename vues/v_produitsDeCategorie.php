@@ -7,8 +7,8 @@
     </div>
     <?php
     foreach ($lesProduits as $unProduit) {
-        $id = $unProduit['id'];
-        $description = $unProduit['description'];
+        $id = $unProduit['idProduit'];
+        $description = $unProduit['nom'];
         $prix = $unProduit['prix'];
         $image = $unProduit['image'];
     ?>
