@@ -52,7 +52,8 @@ switch ($action) {
 
 	case 'voirDetail': {
 			$_REQUEST['produit'];
-			$lesProduits = getLesDetails();
+			$lesDetails = getLesDetails();
+			$lesAvis = getLesAvis();
 			include("vues/v_detail.php");
 			break;
 		}

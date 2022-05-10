@@ -176,7 +176,7 @@ include_once 'bd.inc.php';
 
 	function getLesProduits(){
 		$monPdo=connexionPDO();
-		$req = 'select idProduit, nom, image, prix, idMarque, idCategorie from produit';
+		$req = 'select idProduit, nom, image, description, prix, idMarque, idCategorie from produit';
 		$res = $monPdo->query($req);
 		$prod = $res->fetchall();
 		
@@ -185,11 +185,20 @@ include_once 'bd.inc.php';
 
 	function getLesDetails(){
 		$monPdo=connexionPDO();
-		$req = 'select idProduit, nom, image, prix, idMarque, idCategorie from produit where idProduit='.$_REQUEST['produit'];
+		$req = 'select idProduit, produit.nom as nomProduit, description, image, prix, marque.nom as nomMarque, categorie.nom as nomCategorie from produit INNER JOIN marque on marque.idMarque = produit.idMarque JOIN categorie ON categorie.idCategorie = produit.idCategorie where idProduit='.$_REQUEST['produit'];
 		$res = $monPdo->query($req);
-		$detail = $res->fetchall();
+		$detail = $res->fetch();
 		
 		return $detail;
+	}
+
+	function getLesAvis(){
+		$monPdo=connexionPDO();
+		$req = 'SELECT idAvis, note, avis, idCompte, idProduit FROM avis where idProduit='.$_REQUEST['produit'];
+		$res = $monPdo->query($req);
+		$avis = $res->fetchall();
+		
+		return $avis;
 	}
 
 
