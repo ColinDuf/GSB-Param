@@ -95,7 +95,7 @@ include_once 'bd.inc.php';
 		{
 			foreach($desIdProduit as $unIdProduit)
 			{
-				$req = 'select idProduit, nom, image, prix, idMarque, idCategorie from produit where id = "'.$unIdProduit.'"';
+				$req = 'select idProduit, nom, image, prix, idMarque, idCategorie from produit where idProduit = "'.$unIdProduit.'"';
 				$res = $monPdo->query($req);
 				$unProduit = $res->fetch();
 				$lesProduits[] = $unProduit;
@@ -182,4 +182,16 @@ include_once 'bd.inc.php';
 		
 		return $prod;
 	}
+
+	function getLesDetails(){
+		$monPdo=connexionPDO();
+		$req = 'select idProduit, nom, image, prix, idMarque, idCategorie from produit where idProduit='.$_REQUEST['produit'];
+		$res = $monPdo->query($req);
+		$detail = $res->fetchall();
+		
+		return $detail;
+	}
+
+
+
 ?>

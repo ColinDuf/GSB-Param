@@ -11,7 +11,8 @@ switch ($action) {
 			break;
 		}
 	case 'seDeconnecter': {
-			include("vues/v_deconnexion.php");
+			session_destroy();
+			header("location:index.php?uc=accueil");
 			break;
 		}
 	case 'inscription': {
@@ -22,8 +23,14 @@ switch ($action) {
 			createAccount($_POST['mail'], $_POST['nom'], $_POST['prenom'], $_POST['tel'], $_POST['ville'], $_POST['adresse'], $_POST['cp'], $_POST['mdp']);
 			break;
 		}
-		case 'admin': {
-            include("vues/v_admin.php");
-            break;
-        }
+	case 'admin': {
+			include("vues/v_ajoutProduit.php");
+			break;
+		}
+
+	case 'profil': {
+			include("vues/v_profil.php");
+			ump(getInfo());
+			break;
+		}
 }

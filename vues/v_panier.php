@@ -1,27 +1,33 @@
 <div class="text-center">Votre Panier :</div>
 <div id="produits">
 	<?php
-	
 	foreach ($lesProduitsDuPanier as $unProduit) {
-		$id = $unProduit['id'];
-		$description = $unProduit['description'];
+		if (!isset($count)) {
+			$count = 0;
+		}
+		$id = $unProduit['idProduit'];
+		$description = $unProduit['nom'];
 		$image = $unProduit['image'];
 		$prix = $unProduit['prix'];
 	?>
-		<div class="card">
-			<div class="photoCard"><img src="<?php echo $image ?>" alt="image descriptive" /></div>
+		<div class="card fit p-3">
+			<div class=""><img class="img" src="<?php echo $image ?>" alt="image descriptive" /></div>
 			<div class="descrCard"><?php echo	$description; ?> </div>
 			<div class="prixCard"><?php echo $prix . "€" ?></div>
-			<div class="prixCard"><?php echo 'Quantité :'.' '. $qte ?></div>
-			<div class="imgCard"><a href="index.php?uc=gererPanier&produit=<?php echo $id ?>&action=supprimerUnProduit" onclick="return confirm('Voulez-vous vraiment retirer cet article ?');">
-					<img src="images/retirerpanier.png" TITLE="Retirer du panier" alt="retirer du panier"></a></div>
-				</div>
+			<div class="prixCard"><?php echo 'Quantité :' . ' ' . $_SESSION['qte'][$count] ?></div>
+			<div class="imgCard">
+				<a href="index.php?uc=gererPanier&produit=<?php echo $id ?>&action=supprimerUnProduit" onclick="return confirm('Voulez-vous vraiment retirer cet article ?');">
+					<img src="images/retirerpanier.png" TITLE="Retirer du panier" alt="retirer du panier">
+				</a>
+			</div>
+		</div>
 	<?php
+		$count++;
 	}
 	?>
-	<div class="commande">
-		<a href="index.php?uc=gererPanier&action=passerCommande"><img src="images/commander.jpg" title="Passercommande" alt="Commander"></a>
-		<a onclick="return confirm('Voulez-vous vraiment supprimer votre panier ?');" href="index.php?uc=gererPanier&action=supprimerPanier"><img src="images/corbeille.png" title="SupprimerPanier" alt="SupprimerPanier"></a>
+	<div class="commande d-flex align-items-center">
+		<a class="fit-height" href="index.php?uc=gererPanier&action=passerCommande"><img src="images/commander.jpg" title="Passercommande" alt="Commander"></a>
+		<a class="fit-height" onclick="return confirm('Voulez-vous vraiment supprimer votre panier ?');" href="index.php?uc=gererPanier&action=supprimerPanier"><img class="img" src="images/corbeille.png" title="SupprimerPanier" alt="SupprimerPanier"></a>
 	</div>
 </div>
 <br />

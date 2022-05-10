@@ -20,6 +20,7 @@ if (isset($_SESSION['user']) && isset($_SESSION['niv']) && $_SESSION['niv'] == '
 			<li><a href="index.php?uc=voirProduits&action=voirCategories"> Nos produits par catégorie</a></li>
 			<li><a href="index.php?uc=voirProduits&action=nosProduits"> Nos produits </a></li>
 			<li><a href="index.php?uc=gererPanier&action=voirPanier"> Voir son panier </a></li>
+			<li><a href="index.php?uc=gestionConnexion&action=profil"> Profil </a></li>
 			<li><a href="index.php?uc=gestionConnexion&action=seDeconnecter"> Déconnexion </a></li>
 		</ul>
 		
@@ -35,6 +36,7 @@ if (isset($_SESSION['user']) && isset($_SESSION['niv']) && $_SESSION['niv'] == '
 			<li><a href="index.php?uc=voirProduits&action=voirCategories"> Nos produits par catégorie</a></li>
 			<li><a href="index.php?uc=voirProduits&action=nosProduits"> Nos produits </a></li>
 			<li><a href="index.php?uc=gestionProduits&action=admin"> Administrateur </a></li>
+			<li><a href="index.php?uc=gestionConnexion&action=profil"> Profil </a></li>
 			<li><a href="index.php?uc=gestionConnexion&action=seDeconnecter"> Déconnexion </a></li>
 		</ul>
 	</div>

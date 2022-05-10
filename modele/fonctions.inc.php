@@ -11,9 +11,10 @@ function initPanier()
 function supprimerPanier()
 {
 	unset($_SESSION['produits']);
+	unset($_SESSION['qte']);
 }
 
-function ajouterAuPanier($idProduit)
+function ajouterAuPanier($idProduit, $qte)
 {
 	
 	$ok = true;

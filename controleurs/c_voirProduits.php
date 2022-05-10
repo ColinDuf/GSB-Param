@@ -30,8 +30,8 @@ switch ($action) {
 		}
 	case 'ajouterAuPanier': {
 			$idProduit = $_REQUEST['produit'];
-
-			$ok = ajouterAuPanier($idProduit);
+			$qte = $_POST['qte'];
+			$ok = ajouterAuPanier($idProduit, $qte);
 			/* if(!$ok)
 		{
 			$message = "Cet article est déjà dans le panier !!";
@@ -51,8 +51,15 @@ switch ($action) {
 		}
 
 	case 'voirDetail': {
-		$_REQUEST['produit'];
+			$_REQUEST['produit'];
+			$lesProduits = getLesDetails();
 			include("vues/v_detail.php");
+			break;
+		}
+
+	case 'voirCategories': {
+			$lesCategories = getLesCategories();
+			include("vues/v_categories.php");
 			break;
 		}
 }

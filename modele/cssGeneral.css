@@ -68,11 +68,17 @@ body {
   margin: 10px;
 }
  
-.commande img {
-  height: 35px;
+.img {
+  height: 100px;
 }
  
+.fit{
+  width: fit-content
+}
 
+.fit-height{
+  height: fit-content!important
+}
  
 
 
