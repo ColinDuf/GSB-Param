@@ -38,7 +38,8 @@ switch ($action) {
 			$_REQUEST['produit'];
 			$lesDetails = getLesDetails();
 			$lesAvis = getLesAvis();
-			$lesComptes = getInfo();
+			$info = getInfo();
+			$moyNote = getMoyNote();
 			include("vues/v_detail.php");
 			break;
 		}
@@ -51,7 +52,7 @@ switch ($action) {
 
 	case 'addAvis': {
 		
-			addAvis($_POST['note'], $_POST['avis'], $_POST['idDetail']);
+			addAvis($_POST['note'], $_POST['avis'], $_POST['idDetail'],$_SESSION['user']);
 			break;
 		}
 }

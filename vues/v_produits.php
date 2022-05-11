@@ -14,18 +14,16 @@
             <form action="index.php?uc=voirProduits&produit=<?php echo $id ?>&action=ajouterAuPanier" method="POST">
                 <img class="img" src="<?php echo $image ?>" alt=image />
                 <div class=""><?php echo $description ?></div>
-                <div class=""><?php echo $prix . "€" ?></div>
+                <div class="badge bg-success"><?php echo $prix . "€" ?></div>
                 <a href="index.php?uc=voirProduits&produit=<?php echo $id ?>&action=voirDetail">
                     <button type="button" class="btn btn-outline-warning ">Détails</button>
                 </a>
-                <input type="number" id="qte" name="qte" min="1" value="1" max="50">
-                <button type="submit" class="btn btn-outline-success" name="ajouter">Ajouter au panier</button>
             </form>
         </div>
 
     <?php
 
-    }
+    } 
 
     ?>
 

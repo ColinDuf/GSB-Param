@@ -39,8 +39,19 @@ function getInfo()
 {
 
     $monPdo = connexionPDO();
-    $req = $monPdo->prepare('SELECT mail, nom, prenom, tel, ville, adresse, cp FROM compte WHERE mail =:mail');
+    $req = $monPdo->prepare('SELECT id, mail, nom, prenom, tel, ville, adresse, cp FROM compte WHERE mail =:mail');
     $req->bindParam('mail', $_SESSION['user']);
+    $req->execute();
+    $res = $req->fetch();
+
+    return $res;
+}
+function getInfoUser($id)
+{
+
+    $monPdo = connexionPDO();
+    $req = $monPdo->prepare('SELECT id, mail, nom, prenom, tel, ville, adresse, cp FROM compte WHERE id =:id');
+    $req->bindParam('id', $id);
     $req->execute();
     $res = $req->fetch();
 
@@ -57,3 +68,4 @@ function getNivAccount()
 
     return $res['niv'];
 }
+
