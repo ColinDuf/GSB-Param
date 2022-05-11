@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : mar. 10 mai 2022 à 13:33
--- Version du serveur : 5.7.36
--- Version de PHP : 7.4.26
+-- Hôte : 127.0.0.1:3308
+-- Généré le :  mer. 11 mai 2022 à 15:24
+-- Version du serveur :  8.0.18
+-- Version de PHP :  7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `gsbparam`
+-- Base de données :  `gsbparam`
 --
 
 -- --------------------------------------------------------
@@ -31,20 +32,21 @@ DROP TABLE IF EXISTS `avis`;
 CREATE TABLE IF NOT EXISTS `avis` (
   `idAvis` int(11) NOT NULL AUTO_INCREMENT,
   `note` int(1) NOT NULL,
-  `avis` varchar(256) COLLATE utf8_bin NOT NULL,
+  `avis` varchar(256) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `idCompte` int(11) NOT NULL,
   `idProduit` int(11) DEFAULT NULL,
   PRIMARY KEY (`idAvis`),
   KEY `Avis_Compte_FK` (`idCompte`),
   KEY `FK_avis_idProduit` (`idProduit`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Déchargement des données de la table `avis`
 --
 
 INSERT INTO `avis` (`idAvis`, `note`, `avis`, `idCompte`, `idProduit`) VALUES
-(1, 5, 'Très bon produit avec une bonne odeur. Le produit lave parfaitement. ', 2, 1);
+(1, 5, 'Très bon produit avec une bonne odeur. Le produit lave parfaitement. ', 2, 1),
+(16, 3, 'Bon produit mais le liquide coule trop vite', 2, 5);
 
 -- --------------------------------------------------------
 
@@ -55,8 +57,8 @@ INSERT INTO `avis` (`idAvis`, `note`, `avis`, `idCompte`, `idProduit`) VALUES
 DROP TABLE IF EXISTS `categorie`;
 CREATE TABLE IF NOT EXISTS `categorie` (
   `idCategorie` int(11) NOT NULL AUTO_INCREMENT,
-  `acronyme` varchar(50) COLLATE utf8_bin NOT NULL,
-  `libelle` varchar(50) COLLATE utf8_bin NOT NULL,
+  `acronyme` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `libelle` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`idCategorie`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -92,14 +94,14 @@ CREATE TABLE IF NOT EXISTS `commande` (
 DROP TABLE IF EXISTS `compte`;
 CREATE TABLE IF NOT EXISTS `compte` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `mail` varchar(50) COLLATE utf8_bin NOT NULL,
-  `nom` varchar(50) COLLATE utf8_bin NOT NULL,
-  `prenom` varchar(50) COLLATE utf8_bin NOT NULL,
-  `tel` varchar(50) COLLATE utf8_bin NOT NULL,
-  `ville` varchar(50) COLLATE utf8_bin NOT NULL,
-  `adresse` varchar(50) COLLATE utf8_bin NOT NULL,
+  `mail` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `nom` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `prenom` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `tel` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `ville` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `adresse` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `cp` int(11) NOT NULL,
-  `mdp` varchar(255) COLLATE utf8_bin NOT NULL,
+  `mdp` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `niv` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `Compte_TypeCompte_FK` (`niv`)
@@ -123,7 +125,7 @@ DROP TABLE IF EXISTS `contenance`;
 CREATE TABLE IF NOT EXISTS `contenance` (
   `idContenance` int(11) NOT NULL AUTO_INCREMENT,
   `volume` float NOT NULL,
-  `nom` varchar(50) COLLATE utf8_bin NOT NULL,
+  `nom` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`idContenance`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -150,6 +152,14 @@ CREATE TABLE IF NOT EXISTS `contenir` (
   PRIMARY KEY (`idContenance`,`idProduit`),
   KEY `Contenir_Produit0_FK` (`idProduit`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Déchargement des données de la table `contenir`
+--
+
+INSERT INTO `contenir` (`idContenance`, `idProduit`, `stock`, `prix`) VALUES
+(1, 1, 15, '3'),
+(1, 2, 10, '3');
 
 -- --------------------------------------------------------
 
@@ -188,7 +198,7 @@ CREATE TABLE IF NOT EXISTS `faire` (
 DROP TABLE IF EXISTS `marque`;
 CREATE TABLE IF NOT EXISTS `marque` (
   `idMarque` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(50) COLLATE utf8_bin NOT NULL,
+  `nom` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`idMarque`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -209,10 +219,9 @@ INSERT INTO `marque` (`idMarque`, `nom`) VALUES
 DROP TABLE IF EXISTS `produit`;
 CREATE TABLE IF NOT EXISTS `produit` (
   `idProduit` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(50) COLLATE utf8_bin NOT NULL,
-  `description` varchar(255) COLLATE utf8_bin NOT NULL,
-  `image` varchar(50) COLLATE utf8_bin NOT NULL,
-  `prix` float NOT NULL,
+  `nom` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `image` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `idMarque` int(11) NOT NULL,
   `idCategorie` int(11) NOT NULL,
   PRIMARY KEY (`idProduit`),
@@ -224,13 +233,13 @@ CREATE TABLE IF NOT EXISTS `produit` (
 -- Déchargement des données de la table `produit`
 --
 
-INSERT INTO `produit` (`idProduit`, `nom`, `description`, `image`, `prix`, `idMarque`, `idCategorie`) VALUES
-(1, 'Dop Citron', 'Shampooing pour cheveux doux. Parfumer au citron', 'images/dopCitron.png', 2, 1, 1),
-(2, 'Dop Orange', '', 'images/dopOrange.png', 2, 1, 1),
-(3, 'Dop Amande', '', 'images/dopAmande.jpg', 2, 1, 1),
-(4, 'Petit Marseillais Lait', '', 'images/marseillaisLait.png', 3, 2, 2),
-(5, 'Petit Marseillais Vanille', '', 'images/marseillaisPeche.png', 3, 2, 2),
-(6, 'Petit Marseillais Vanille', '', 'images/marseillaisVanille.png', 3, 2, 2);
+INSERT INTO `produit` (`idProduit`, `nom`, `description`, `image`, `idMarque`, `idCategorie`) VALUES
+(1, 'Dop Citron', 'Shampooing pour cheveux doux. Parfumer au citron', 'images/dopCitron.png', 1, 1),
+(2, 'Dop Orange', '', 'images/dopOrange.png', 1, 1),
+(3, 'Dop Amande', '', 'images/dopAmande.jpg', 1, 1),
+(4, 'Petit Marseillais Lait', '', 'images/marseillaisLait.png', 2, 2),
+(5, 'Petit Marseillais Vanille', '', 'images/marseillaisPeche.png', 2, 2),
+(6, 'Petit Marseillais Vanille', '', 'images/marseillaisVanille.png', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -241,7 +250,7 @@ INSERT INTO `produit` (`idProduit`, `nom`, `description`, `image`, `prix`, `idMa
 DROP TABLE IF EXISTS `typecompte`;
 CREATE TABLE IF NOT EXISTS `typecompte` (
   `niv` int(11) NOT NULL,
-  `libelle` varchar(50) COLLATE utf8_bin NOT NULL,
+  `libelle` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`niv`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
