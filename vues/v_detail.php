@@ -1,6 +1,6 @@
 <?php
 
-$idDetail = $lesDetails['idProduit'];
+$idProduit = $lesDetails['idProduit'];
 $description = $lesDetails['description'];
 $nom = $lesDetails['nomProduit'];
 $prix = $lesDetails['prix'];
@@ -26,7 +26,6 @@ $note = $moyNote[0];
 <hr>
 
 <?php
-var_dump($info2);
 foreach ($lesAvis as $unAvis) {
     
     $idAvis = $unAvis['idAvis'];
@@ -50,7 +49,7 @@ if (isset($_SESSION['user']) && isset($_SESSION['niv']) && $_SESSION['niv'] == '
 
 ?>
     <div class="container justify-content-center border border-secondary">
-        <form action="index.php?uc=voirProduits&action=addAvis" class="form " id="avis" method="POST">
+        <form action="index.php?uc=voirProduits&action=addAvis&produit=<?= $idProduit ?>" class="form " id="avis" method="POST">
             <h1 class="form_title text-center">Ecrire un avis</h1>
             <div class="form__input-group"> Note :
                 <input type="number" id="note" name="note" min="0" value="0" max="5">

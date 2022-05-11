@@ -183,13 +183,16 @@ function getLesAvis()
 	return $avis;
 }
 
-function addAvis($note, $avis)
+function addAvis($note, $avis,$idProduit,$idCompte)
 {
 	$monPdo = connexionPDO();
-	$req = $monPdo->prepare("INSERT INTO compte ( idAvis, note, avis, idCompte, idProduit ) VALUES (:idAvis, :note, :avis, :idCompte, :idProduit);");
+	$req = $monPdo->prepare("INSERT INTO avis (note, avis, idCompte, idProduit ) VALUES (:note, :avis, :idCompte, :idProduit)");
 	$req->bindParam('note', $note);
 	$req->bindParam('avis', $avis);
+	$req->bindParam('idProduit', $idProduit);
+	$req->bindParam('idCompte', $idCompte);
 	$req->execute();
+
 }
 
 function getMoyNote()
