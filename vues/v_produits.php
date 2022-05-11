@@ -6,7 +6,6 @@
     foreach ($lesProduits as $unProduit) {
         $id = $unProduit['idProduit'];
         $description = $unProduit['nom'];
-        $prix = $unProduit['prix'];
         $image = $unProduit['image'];
 
     ?>
@@ -14,7 +13,6 @@
             <form action="index.php?uc=voirProduits&produit=<?php echo $id ?>&action=ajouterAuPanier" method="POST">
                 <img class="img" src="<?php echo $image ?>" alt=image />
                 <div class=""><?php echo $description ?></div>
-                <div class="badge bg-success"><?php echo $prix . "€" ?></div>
                 <a href="index.php?uc=voirProduits&produit=<?php echo $id ?>&action=voirDetail">
                     <button type="button" class="btn btn-outline-warning ">Détails</button>
                 </a>

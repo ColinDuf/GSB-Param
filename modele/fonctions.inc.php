@@ -23,12 +23,14 @@ function ajouterAuPanier($idProduit, $qte)
 		$index = array_search($idProduit,$_SESSION['produits']);
 		$qte = (int) $qte;
 		$_SESSION['qte'][$index] += $qte;
+		$_SESSION['contenance'][$index] += $contenance;
 		$ok = false;
 	}
 	else
 	{
 		$_SESSION['produits'][]= $idProduit; // l'indice n'est pas précisé : il sera automatiquement celui qui suit le dernier occupé
 		$_SESSION['qte'][]=$qte;
+		$_SESSION['contenance'][]=$contenance;
 	}
 	return $ok;
 }
@@ -177,6 +179,7 @@ function AddProduit($desc, $prix, $image, $idCat)
     $req->bindParam('idCat', $idCat);
     $req->execute();
 }
+
 
 
 ?>

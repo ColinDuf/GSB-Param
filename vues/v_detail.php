@@ -8,7 +8,8 @@ $image = $lesDetails['image'];
 $marque = $lesDetails['nomMarque'];
 $categorie = $lesDetails['nomCategorie'];
 $note = $moyNote[0];
-
+$stock = $lesCaracteristique['stock'];
+var_dump($stock);
 ?>
 
 <img class="img" src="<?php echo $image ?>" alt=image />

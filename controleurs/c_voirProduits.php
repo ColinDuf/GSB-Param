@@ -40,6 +40,7 @@ switch ($action) {
 			$lesAvis = getLesAvis();
 			$info = getInfo();
 			$moyNote = getMoyNote();
+			$lesCaracteristique = getCaracteristique();
 			include("vues/v_detail.php");
 			break;
 		}
@@ -54,4 +55,5 @@ switch ($action) {
 			addAvis($_POST['note'], $_POST['avis'], $_GET['produit'],getInfo()['id']);
 			break;
 		}
+
 }

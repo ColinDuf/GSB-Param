@@ -60,7 +60,7 @@ function getLesProduitsDeCategorie($idCategorie)
 {
 	try {
 		$monPdo = connexionPDO();
-		$req = 'select idProduit, nom, image, prix, idMarque, idCategorie from produit where idCategorie ="' . $idCategorie . '"';
+		$req = 'select idProduit, nom, image, idMarque, idCategorie from produit where idCategorie ="' . $idCategorie . '"';
 		$res = $monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
@@ -83,7 +83,7 @@ function getLesProduitsDuTableau($desIdProduit)
 		$lesProduits = array();
 		if ($nbProduits != 0) {
 			foreach ($desIdProduit as $unIdProduit) {
-				$req = 'select idProduit, nom, image, prix, idMarque, idCategorie from produit where idProduit = "' . $unIdProduit . '"';
+				$req = 'select idProduit, nom, image, idMarque, idCategorie from produit where idProduit = "' . $unIdProduit . '"';
 				$res = $monPdo->query($req);
 				$unProduit = $res->fetch();
 				$lesProduits[] = $unProduit;
@@ -156,7 +156,7 @@ function getLesCommandesDuMois($mois, $an)
 function getLesProduits()
 {
 	$monPdo = connexionPDO();
-	$req = 'select idProduit, nom, image, description, prix, idMarque, idCategorie from produit ORDER BY idProduit DESC';
+	$req = 'select idProduit, nom, image, description, idMarque, idCategorie from produit ORDER BY idProduit DESC';
 	$res = $monPdo->query($req);
 	$prod = $res->fetchall();
 
@@ -166,7 +166,7 @@ function getLesProduits()
 function getLesDetails()
 {
 	$monPdo = connexionPDO();
-	$req = 'select idProduit, produit.nom as nomProduit, description, image, prix, marque.nom as nomMarque, categorie.libelle as nomCategorie from produit INNER JOIN marque on marque.idMarque = produit.idMarque JOIN categorie ON categorie.idCategorie = produit.idCategorie where idProduit=' . $_REQUEST['produit'];
+	$req = 'select idProduit, produit.nom as nomProduit, description, image, marque.nom as nomMarque, categorie.libelle as nomCategorie from produit INNER JOIN marque on marque.idMarque = produit.idMarque JOIN categorie ON categorie.idCategorie = produit.idCategorie where idProduit=' . $_REQUEST['produit'];
 	$res = $monPdo->query($req);
 	$detail = $res->fetch();
 
@@ -183,7 +183,7 @@ function getLesAvis()
 	return $avis;
 }
 
-function addAvis($note, $avis,$idProduit,$idCompte)
+function addAvis($note, $avis, $idProduit, $idCompte)
 {
 	$monPdo = connexionPDO();
 	$req = $monPdo->prepare("INSERT INTO avis (note, avis, idCompte, idProduit ) VALUES (:note, :avis, :idCompte, :idProduit)");
@@ -192,7 +192,6 @@ function addAvis($note, $avis,$idProduit,$idCompte)
 	$req->bindParam('idProduit', $idProduit);
 	$req->bindParam('idCompte', $idCompte);
 	$req->execute();
-
 }
 
 function getMoyNote()
@@ -225,4 +224,11 @@ function getLesUnites()
 	return $unite;
 }
 
-
+function getCaracteristique()
+{
+	$monPdo = connexionPDO();
+	$req = $monPdo->prepare('SELECT idContenance, idProduit, stock, prix FROM contenir WHERE idProduit =' . $_REQUEST['produit']);
+	$req->execute([$_REQUEST['produit']]);
+	$caracteristique = $req->fetchall();
+	return $caracteristique;
+}

@@ -10,14 +10,12 @@
 		foreach ($lesProduits as $unProduit) {
 			$id = $unProduit['idProduit'];
 			$description = $unProduit['nom'];
-			$prix = $unProduit['prix'];
 			$image = $unProduit['image'];
 		?>
 			<form action="index.php?uc=voirProduits&produit=<?php echo $id ?>&action=ajouterAuPanier" method="POST">
 				<div class="card fit p-3 d-flex flex-column justify-content-center align-items-center m-1">
 					<div class=""><img class="img" src="<?php echo $image ?>" alt=image /></div>
 					<div class="descrCard"><?php echo $description ?></div>
-					<div class="prixCard"><?php echo $prix . "€" ?></div>
 					<a href="index.php?uc=voirProduits&produit=<?php echo $id ?>&action=voirDetail">
 						<button type="button" class="btn btn-outline-warning ">Détails</button>
 					</a>
