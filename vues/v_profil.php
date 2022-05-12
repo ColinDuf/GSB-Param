@@ -10,8 +10,8 @@
         echo '<div class="profil py-1"><u>Adresse</u> : ' . $info['adresse'] . '</div>';
         echo '<div class="profil py-1"><u>Code Postal</u> : ' . $info['cp'] . '</div>';
         ?>
-         <form action="index.php?uc=gestionConnexion&action=seDeconnecter" class="form" id="deconnexion" method="POST">
-        <button name="submit" class="btn btn-outline-danger justify-content-center" type="submit">Déconnexion</button>
-         </form>
 </div>
+<form action="index.php?uc=gestionConnexion&action=seDeconnecter" class="form mx-auto fit" id="deconnexion" method="POST">
+        <button name="submit" class="btn btn-outline-danger " type="submit">Déconnexion</button>
+         </form>
 </section>

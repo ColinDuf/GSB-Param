@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3308
--- Généré le :  mer. 11 mai 2022 à 15:24
+-- Généré le :  jeu. 12 mai 2022 à 09:53
 -- Version du serveur :  8.0.18
 -- Version de PHP :  7.3.12
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `avis` (
   PRIMARY KEY (`idAvis`),
   KEY `Avis_Compte_FK` (`idCompte`),
   KEY `FK_avis_idProduit` (`idProduit`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Déchargement des données de la table `avis`
@@ -46,7 +46,8 @@ CREATE TABLE IF NOT EXISTS `avis` (
 
 INSERT INTO `avis` (`idAvis`, `note`, `avis`, `idCompte`, `idProduit`) VALUES
 (1, 5, 'Très bon produit avec une bonne odeur. Le produit lave parfaitement. ', 2, 1),
-(16, 3, 'Bon produit mais le liquide coule trop vite', 2, 5);
+(16, 3, 'Bon produit mais le liquide coule trop vite', 2, 5),
+(17, 3, 'Odeur agréable', 2, 6);
 
 -- --------------------------------------------------------
 
@@ -127,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `contenance` (
   `volume` float NOT NULL,
   `nom` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`idContenance`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Déchargement des données de la table `contenance`
@@ -135,7 +136,9 @@ CREATE TABLE IF NOT EXISTS `contenance` (
 
 INSERT INTO `contenance` (`idContenance`, `volume`, `nom`) VALUES
 (1, 100, 'ml'),
-(2, 150, 'ml');
+(2, 150, 'ml'),
+(3, 100, 'g'),
+(4, 150, 'g');
 
 -- --------------------------------------------------------
 
@@ -159,7 +162,11 @@ CREATE TABLE IF NOT EXISTS `contenir` (
 
 INSERT INTO `contenir` (`idContenance`, `idProduit`, `stock`, `prix`) VALUES
 (1, 1, 15, '3'),
-(1, 2, 10, '3');
+(1, 2, 10, '3'),
+(1, 3, 5, '4'),
+(1, 4, 9, '3'),
+(1, 5, 8, '4'),
+(1, 6, 20, '7');
 
 -- --------------------------------------------------------
 

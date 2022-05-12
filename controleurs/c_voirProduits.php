@@ -40,7 +40,7 @@ switch ($action) {
 			$lesAvis = getLesAvis();
 			$info = getInfo();
 			$moyNote = getMoyNote();
-			$lesCaracteristique = getCaracteristique();
+			$lesCaracteristiques = getCaracteristique($_REQUEST['produit']);
 			include("vues/v_detail.php");
 			break;
 		}

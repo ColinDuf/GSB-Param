@@ -3,13 +3,13 @@
 $idProduit = $lesDetails['idProduit'];
 $description = $lesDetails['description'];
 $nom = $lesDetails['nomProduit'];
-$prix = $lesDetails['prix'];
 $image = $lesDetails['image'];
 $marque = $lesDetails['nomMarque'];
 $categorie = $lesDetails['nomCategorie'];
 $note = $moyNote[0];
-$stock = $lesCaracteristique['stock'];
-var_dump($stock);
+$stock = $lesCaracteristiques['stock'];
+$prix = $lesCaracteristiques['prix'];
+
 ?>
 
 <img class="img" src="<?php echo $image ?>" alt=image />
@@ -21,12 +21,15 @@ var_dump($stock);
 <div> <u>Note du produit</u> : <?php echo $note[0]; ?> </div>
 
 <form action="index.php?uc=voirProduits&produit=<?php echo $_GET['produit'] ?>&action=ajouterAuPanier" method="POST">
-    <input type="number" id="qte" name="qte" min="1" value="1" max="50">
+    <input type="number" id="qte" name="qte" min="1" value="1" max="<?= $stock ?>">
     <button type="submit" class="btn btn-outline-success" name="ajouter">Ajouter au panier</button>
+<div class="">Le stock de ce produit est <?= $stock ?></div>
 </form>
+
 <hr>
 
 <?php
+
 foreach ($lesAvis as $unAvis) {
     
     $idAvis = $unAvis['idAvis'];

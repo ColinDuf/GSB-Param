@@ -224,11 +224,11 @@ function getLesUnites()
 	return $unite;
 }
 
-function getCaracteristique()
+function getCaracteristique($id)
 {
 	$monPdo = connexionPDO();
-	$req = $monPdo->prepare('SELECT idContenance, idProduit, stock, prix FROM contenir WHERE idProduit =' . $_REQUEST['produit']);
-	$req->execute([$_REQUEST['produit']]);
-	$caracteristique = $req->fetchall();
-	return $caracteristique;
+	$req = 'SELECT idContenance, idProduit, stock, prix FROM contenir WHERE idProduit =' . $id;
+	$res = $monPdo->query($req);
+	$caracteristiques = $res->fetch();
+	return $caracteristiques;
 }
