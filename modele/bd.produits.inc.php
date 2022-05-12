@@ -232,3 +232,15 @@ function getCaracteristique($id)
 	$caracteristiques = $res->fetch();
 	return $caracteristiques;
 }
+
+function AddProduit($nom, $desc, $image, $categorie, $marque)
+{
+	$monPdo = connexionPDO();
+	$req = $monPdo->prepare("INSERT INTO produit (nom, description, image, idMarque, idCategorie)  VALUES (:nom, :desc, :image, :marque, :idCat)");
+	$req->bindParam('nom', $nom);
+	$req->bindParam('description', $desc);
+	$req->bindParam('image', $image);
+	$req->bindParam('idMarque', $marque);
+	$req->bindParam('idCategorie', $categorie);
+	$req->execute();
+}

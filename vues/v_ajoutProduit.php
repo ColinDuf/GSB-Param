@@ -40,7 +40,7 @@ $updateId = $idPoduit + 1;
 		</div>
 
 		<div class="col-lg-6 ">
-			<select class="form-control" name="categorie">
+			<select class="form-control" name="marque">
 				<option value="" disabled selected>Choisir une marque</option>
 				<?php
 
@@ -57,7 +57,7 @@ $updateId = $idPoduit + 1;
 			<input type="text" class="form__input" placeholder="Volume" name="volume">
 		</div>
 
-		<select class="ms-1 col-6 form-select w-50" name="categorie">
+		<select class="ms-1 col-6 form-select w-50" name="unite">
 			<option value="" disabled selected>Choisir une unité</option>
 			<?php
 

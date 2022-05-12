@@ -17,7 +17,8 @@ switch ($action) {
     }
 
   case 'AddProduit': {
-      AddProduit($_POST['nom'],$_POST['desc'], $_POST['prix'], $_POST['image'], $_POST['idCat']);
+    var_dump($_POST );
+      AddProduit($_POST['nom'],$_POST['desc'], $_POST['prix'], $_POST['image'],$_POST['marque'],$_POST['categorie']);
       break;
     }
     
