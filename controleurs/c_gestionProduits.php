@@ -12,14 +12,16 @@ switch ($action) {
     }
 
   case 'modifProduit': {
+      $lesProduits = getLesProduits();
+      $lesMarques = getLesMarques();
+      $lesCategories = getLesCategories();
       include("vues/v_modifProduit.php");
       break;
     }
 
   case 'AddProduit': {
-    var_dump($_POST );
-      AddProduit($_POST['nom'],$_POST['desc'], $_POST['prix'], $_POST['image'],$_POST['marque'],$_POST['categorie']);
+      
+      AddProduit($_POST['nom'], $_POST['desc'], $_POST['prix'], $_POST['image'], $_POST['marque'], $_POST['categorie']);
       break;
     }
-    
 }

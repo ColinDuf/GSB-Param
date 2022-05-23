@@ -4,7 +4,7 @@ $updateId = $idPoduit + 1;
 ?>
 <div class="form_title text-center ">Panel administrateur</div>
 
-<form action="index.php?uc=gestionProduits&action=AddProduit" class="form w-50 mx-auto" id="login" method="POST">
+<form action="index.php?uc=gestionProduits&action=AddProduit" class="form w-50 mx-auto" id="addProduit" method="POST">
 
 
 	Ajout du produit n° <?= $updateId; ?>
@@ -43,16 +43,15 @@ $updateId = $idPoduit + 1;
 			<select class="form-control" name="marque">
 				<option value="" disabled selected>Choisir une marque</option>
 				<?php
-
 				foreach ($lesMarques as $uneMarque) {
-					echo '<option value="' . $uneMarque['idMarque'] . '">' . $uneMarque['nom'] . '  </option>';
+					echo '<option value="' . $uneMarque['idMarque'] . '">' . $uneMarque['nom'] . ' 	 </option>';
 				}
 
 				?>
 			</select>
 		</div>
 	</div><br>
-	<div class="d-flex align-items-center">
+<!-- 	<div class="d-flex align-items-center">
 		<div class="me-1 col-6 form__input-group p-0 m-0">
 			<input type="text" class="form__input" placeholder="Volume" name="volume">
 		</div>
@@ -61,13 +60,13 @@ $updateId = $idPoduit + 1;
 			<option value="" disabled selected>Choisir une unité</option>
 			<?php
 
-			foreach ($lesUnites as $uneUnite) {
+		/* 	foreach ($lesUnites as $uneUnite) {
 				echo '<option value="' . $uneUnite['nom'] . '">' . $uneUnite['nom'] . '  </option>';
-			}
+			} */
 
 			?>
 		</select>
-	</div>
+	</div> -->
 	<div class="form__input-group my-1">
 		<label for="stock">Stock :</label>
 		<input type="number" id="stock" name="stock" min="1" value="0" max="">

@@ -207,7 +207,7 @@ function getMoyNote()
 function getLesMarques()
 {
 	$monPdo = connexionPDO();
-	$req = 'SELECT nom FROM marque';
+	$req = 'SELECT idMarque, nom FROM marque';
 	$res = $monPdo->query($req);
 	$marque = $res->fetchall();
 
@@ -233,12 +233,13 @@ function getCaracteristique($id)
 	return $caracteristiques;
 }
 
-function AddProduit($nom, $desc, $image, $categorie, $marque)
+function AddProduit($nom, $desc, $prix, $image, $categorie, $marque)
 {
 	$monPdo = connexionPDO();
-	$req = $monPdo->prepare("INSERT INTO produit (nom, description, image, idMarque, idCategorie)  VALUES (:nom, :desc, :image, :marque, :idCat)");
+	$req = $monPdo->prepare("INSERT INTO produit (nom, description, prix, image, idMarque, idCategorie)  VALUES (:nom, :desc, :prix :image, :marque, :idCat)");
 	$req->bindParam('nom', $nom);
 	$req->bindParam('description', $desc);
+	$req->bindParam('prix', $prix);
 	$req->bindParam('image', $image);
 	$req->bindParam('idMarque', $marque);
 	$req->bindParam('idCategorie', $categorie);
