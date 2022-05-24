@@ -166,13 +166,13 @@ function getErreursSaisieCommande($nom,$rue,$ville,$cp,$mail)
 	return $lesErreurs;
 }
 
-function commande($_SESSION['produits'])
+/* function commande($_SESSION['produits'])
 {
 	$monPdo = connexionPDO();
 	$req = $monPdo->prepare("INSERT INTO commande ()  VALUES ()");
 
 	$req->execute();
-}
+} */
 
 
 

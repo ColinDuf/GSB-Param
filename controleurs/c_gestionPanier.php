@@ -1,53 +1,45 @@
 ﻿<?php
 $action = $_REQUEST['action'];
-switch($action)
-{
-	case 'voirPanier':
-	{
-		$n= nbProduitsDuPanier();
-		if($n >0)
-		{
+switch ($action) {
+	case 'voirPanier': {
+			$n = nbProduitsDuPanier();
+			if ($n > 0) {
+				$desIdProduit = getLesIdProduitsDuPanier();
+				$lesProduitsDuPanier = getLesProduitsDuTableau($desIdProduit);
+				include("vues/v_panier.php");
+			} else {
+				$message = "Votre panier est vide !";
+				include("vues/v_message.php");
+			}
+			break;
+		}
+	case 'supprimerUnProduit': {
+			$idProduit = $_REQUEST['produit'];
+			retirerDuPanier($idProduit);
 			$desIdProduit = getLesIdProduitsDuPanier();
 			$lesProduitsDuPanier = getLesProduitsDuTableau($desIdProduit);
 			include("vues/v_panier.php");
+			break;
 		}
-		else
-		{
-			$message = "Votre panier est vide !";
-			include ("vues/v_message.php");
-		}
-		break;
-	}
-	case 'supprimerUnProduit':
-	{
-		$idProduit=$_REQUEST['produit'];
-		retirerDuPanier($idProduit);
-		$desIdProduit = getLesIdProduitsDuPanier();
-		$lesProduitsDuPanier = getLesProduitsDuTableau($desIdProduit);
-		include("vues/v_panier.php");
-		break;
-	}
-	case 'supprimerPanier':
-		{
+	case 'supprimerPanier': {
 			supprimerPanier();
 			$message = "Panier supprimer !";
 			include("vues/v_message.php");
 			break;
 		}
+
+	case 'passerCommande': {
+			commande($_SESSION['produits']);
+			include("vues/v_commande.php");
+		}
+
 	
-	case 'passerCommande' :
-
-		commande($_SESSION['produits']);
-		include ("vues/v_commande.php");
 
 
 
 
 
-
-
-
-	    /* $n= nbProduitsDuPanier();
+		/* $n= nbProduitsDuPanier();
 		if($n>0)
 		{ 
 			$nom ='';$rue='';$ville ='';$cp='';$mail='';

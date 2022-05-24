@@ -258,3 +258,13 @@ function modifProduit($produit, $nom, $description, $image, $marque, $categorie,
 	$req->bindParam('stock', $stock);
 	$req->execute();
 }
+
+
+function getCommande()
+{
+	$monPdo = connexionPDO();
+	$req = 'SELECT idCommande, date, etat, montant FROM commande';
+	$res = $monPdo->query($req);
+	$commandes = $res->fetchAll();
+	return $commandes;
+}

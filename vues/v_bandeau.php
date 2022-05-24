@@ -43,6 +43,7 @@
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="index.php?uc=gestionProduits&action=ajoutProduit">Ajout produit</a>
 						<a class="dropdown-item" href="index.php?uc=gestionProduits&action=modifProduit">Modifier produit</a>
+						<a class="dropdown-item" href="index.php?uc=gestionProduits&action=histoCommande">Commande</a>
 					</div>
 				</div>
 				<li><a href="index.php?uc=gestionConnexion&action=seDeconnecter"> Déconnexion </a></li>
