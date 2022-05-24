@@ -57,7 +57,15 @@
                 </select>
         </div>
 
+        <div class="form__input-group my-1">
+		<label for="prix">Prix :</label>
+		<input type="number" id="prix" name="prix" min="" value="0" max="">
+	</div>
 
+        <div class="form__input-group my-1">
+		<label for="stock">Stock :</label>
+		<input type="number" id="stock" name="stock" min="1" value="0" max="">
+	</div>
 
 
 
@@ -80,7 +88,7 @@
 
 
         <div class="col-lg-1">
-                <button class="btn btn-success form-control " type="submit" value="Valider" name="valider">Valider</button>
+                <button class="btn btn-success form-control " type="submit" value="valider" name="valider">Valider</button>
         </div>
 	
 

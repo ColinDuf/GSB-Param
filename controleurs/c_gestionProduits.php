@@ -16,6 +16,9 @@ switch ($action) {
       $lesMarques = getLesMarques();
       $lesCategories = getLesCategories();
       include("vues/v_modifProduit.php");
+      if (isset($_POST['valider'])) {
+      modifProduit($_POST['produit'],$_POST['nom'],$_POST['description'],$_POST['image'],$_POST['marque'],$_POST['categorie'],$_POST['prix'],$_POST['stock']);
+      }
       break;
     }
 

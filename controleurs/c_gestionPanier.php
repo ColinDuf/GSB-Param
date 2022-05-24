@@ -36,7 +36,18 @@ switch($action)
 		}
 	
 	case 'passerCommande' :
-	    $n= nbProduitsDuPanier();
+
+		commande($_SESSION['produits']);
+		include ("vues/v_commande.php");
+
+
+
+
+
+
+
+
+	    /* $n= nbProduitsDuPanier();
 		if($n>0)
 		{ 
 			$nom ='';$rue='';$ville ='';$cp='';$mail='';
@@ -66,5 +77,5 @@ switch($action)
 			include ("vues/v_message.php");
 		}
 		break;
-	}
+	} */
 }

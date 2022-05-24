@@ -245,3 +245,16 @@ function AddProduit($nom, $desc, $prix, $image, $categorie, $marque)
 	$req->bindParam('idCategorie', $categorie);
 	$req->execute();
 }
+
+function modifProduit($produit, $nom, $description, $image, $marque, $categorie, $stock)
+{
+	$monPdo = connexionPDO();
+	$req = $monPdo->prepare("UPDATE `produit` SET (produit, nom, description, image, marque, categorie,stock WHERE produit='.$produit)  VALUES (:nom, :description :image, :marque, :categorie, :stock)");
+	$req->bindParam('nom', $nom);
+	$req->bindParam('description', $description);
+	$req->bindParam('image', $image);
+	$req->bindParam('marque', $marque);
+	$req->bindParam('categorie', $categorie);
+	$req->bindParam('stock', $stock);
+	$req->execute();
+}

@@ -9,6 +9,7 @@
 		$description = $unProduit['nom'];
 		$image = $unProduit['image'];
 		$prix = $unProduit['prix'];
+		
 	?>
 		<div class="card fit p-3">
 			<div class=""><img class="img" src="<?php echo $image ?>" alt="image descriptive" /></div>
@@ -24,6 +25,7 @@
 	<?php
 		$count++;
 	}
+	
 	?>
 	<div class="commande d-flex align-items-center">
 		<a class="fit-height" href="index.php?uc=gererPanier&action=passerCommande"><img src="images/commander.jpg" title="Passercommande" alt="Commander"></a>
