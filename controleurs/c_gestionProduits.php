@@ -31,4 +31,14 @@ switch ($action) {
       $lesCommandes = getCommande();
       include("vues/v_histoCommande.php");
     }
+
+    case 'modifCategorie': {
+      include("vues/v_modifCategorie.php");
+    }
+    
+    case 'addCategorie': {
+			var_dump($_POST);
+			addCategorie($_POST['acronyme'],$_POST['libelle']);
+			break;
+		}
 }

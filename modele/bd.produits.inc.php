@@ -259,7 +259,6 @@ function modifProduit($produit, $nom, $description, $image, $marque, $categorie,
 	$req->execute();
 }
 
-
 function getCommande()
 {
 	$monPdo = connexionPDO();
@@ -267,4 +266,19 @@ function getCommande()
 	$res = $monPdo->query($req);
 	$commandes = $res->fetchAll();
 	return $commandes;
+}
+
+function commande()
+{
+	$monPdo = connexionPDO();
+	$req = $monPdo->prepare("INSERT INTO commande (nom, description, prix, image, idMarque, idCategorie)  VALUES (:nom, :desc, :prix :image, :marque, :idCat)");
+	$req->execute();
+}
+function addCategorie($acronyme, $libelle)
+{
+	$monPdo = connexionPDO();
+	$req = $monPdo->prepare("INSERT INTO categorie (acronyme, libelle)  VALUES (:acronyme, :libelle)");
+	$req->bindParam('acronyme', $acronyme);
+	$req->bindParam('libelle', $libelle);
+	$req->execute();
 }

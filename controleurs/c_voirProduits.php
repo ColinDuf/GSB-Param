@@ -55,5 +55,7 @@ switch ($action) {
 			addAvis($_POST['note'], $_POST['avis'], $_GET['produit'],getInfo()['id']);
 			break;
 		}
+		
+		
 
 }
