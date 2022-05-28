@@ -281,4 +281,26 @@ function addCategorie($acronyme, $libelle)
 	$req->bindParam('acronyme', $acronyme);
 	$req->bindParam('libelle', $libelle);
 	$req->execute();
+	echo '<div class="alert alert-success py-3 w-25 m-auto text-center" role="alert"> Catégorie ajouté !</div>';
 }
+
+function supCat($categorie)
+{
+	$monPdo = connexionPDO();
+	$req = $monPdo->prepare("DELETE FROM `categorie` WHERE `categorie`.`idCategorie` = :categorie");
+	$req->bindParam('categorie', $categorie);
+	$req->execute();
+	echo '<div class="alert alert-success py-3 w-25 m-auto text-center" role="alert"> Catégorie supprimé !</div>';
+}
+
+function modifCat($categorie, $acronyme, $libelle)
+{
+	$monPdo = connexionPDO();
+	$req = $monPdo->prepare("UPDATE `categorie` SET acronyme = :acronyme, libelle =:libelle WHERE idCategorie = :categorie ");
+	$req->bindParam('categorie', $categorie);
+	$req->bindParam('acronyme', $acronyme);
+	$req->bindParam('libelle', $libelle);
+	$req->execute();
+	echo '<div class="alert alert-success py-3 w-25 m-auto text-center" role="alert"> Catégorie modifié !</div>';
+}
+

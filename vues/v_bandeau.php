@@ -41,9 +41,8 @@
 				<div class="btn-group">
 					<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Admin </button>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="index.php?uc=gestionProduits&action=ajoutProduit">Ajout produit</a>
-						<a class="dropdown-item" href="index.php?uc=gestionProduits&action=modifProduit">Modifier produit</a>
-						<a class="dropdown-item" href="index.php?uc=gestionProduits&action=modifCategorie">Categorie</a>
+						<a class="dropdown-item" href="index.php?uc=gestionProduits&action=ajoutProduit">Modifier produit</a>
+						<a class="dropdown-item" href="index.php?uc=gestionProduits&action=Categorie">Modifier Categorie</a>
 						<a class="dropdown-item" href="index.php?uc=gestionProduits&action=histoCommande">Commande</a>
 					</div>
 				</div>

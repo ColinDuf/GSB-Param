@@ -37,7 +37,6 @@ function createAccount($mail, $nom, $prenom, $tel, $ville, $adresse, $cp, $mdp)
 
 function getInfo()
 {
-
     $monPdo = connexionPDO();
     $req = $monPdo->prepare('SELECT id, mail, nom, prenom, tel, ville, adresse, cp FROM compte WHERE mail =:mail');
     $req->bindParam('mail', $_SESSION['user']);
@@ -46,6 +45,7 @@ function getInfo()
 
     return $res;
 }
+
 function getInfoUser($id)
 {
 
