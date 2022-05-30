@@ -29,45 +29,16 @@ switch ($action) {
 		}
 
 	case 'passerCommande': {
-			commande($_SESSION['produits']);
+			$total = $_REQUEST["total"];
+			$mail = $_SESSION['user'];
+			commande($total, $mail);
+			$idCommande = getIdCommande();
+			contenueCommande($idCommande,$_SESSION['panier']);
+			 supprimerPanier($_SESSION['panier']); 
 			include("vues/v_commande.php");
+
 		}
 
-	
 
 
-
-
-
-		/* $n= nbProduitsDuPanier();
-		if($n>0)
-		{ 
-			$nom ='';$rue='';$ville ='';$cp='';$mail='';
-			include ("vues/v_commande.php");
-		}
-		else
-		{
-			$message = "panier vide !!";
-			include ("vues/v_message.php");
-		}
-		break;
-	case 'confirmerCommande'	:
-	{
-		$nom =$_REQUEST['nom'];$rue=$_REQUEST['rue'];$ville =$_REQUEST['ville'];$cp=$_REQUEST['cp'];$mail=$_REQUEST['mail'];
-	 	$msgErreurs = getErreursSaisieCommande($nom,$rue,$ville,$cp,$mail);
-		if (count($msgErreurs)!=0)
-		{
-			include ("vues/v_erreurs.php");
-			include ("vues/v_commande.php");
-		}
-		else
-		{
-			$lesIdProduit = getLesIdProduitsDuPanier();
-			creerCommande($nom,$rue,$cp,$ville,$mail, $lesIdProduit );
-			$message = "Commande enregistrée";
-			supprimerPanier();
-			include ("vues/v_message.php");
-		}
-		break;
-	} */
 }

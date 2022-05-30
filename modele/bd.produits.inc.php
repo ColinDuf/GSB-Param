@@ -83,7 +83,7 @@ function getLesProduitsDuTableau($desIdProduit)
 		$lesProduits = array();
 		if ($nbProduits != 0) {
 			foreach ($desIdProduit as $unIdProduit) {
-				$req = 'select idProduit, nom, image, idMarque, idCategorie from produit where idProduit = "' . $unIdProduit . '"';
+				$req = 'select idProduit, nom, image, idMarque, idCategorie,prix from produit where idProduit = "' . $unIdProduit . '"';
 				$res = $monPdo->query($req);
 				$unProduit = $res->fetch();
 				$lesProduits[] = $unProduit;
@@ -233,28 +233,76 @@ function getCaracteristique($id)
 	return $caracteristiques;
 }
 
-function AddProduit($nom, $desc, $prix, $image, $categorie, $marque)
+function AddProduit($nom, $description, $prix, $image, $marque, $categorie)
+{
+	$image = "images/". $image ;
+	$monPdo = connexionPDO();
+	$req = $monPdo->prepare("INSERT INTO produit (nom, description, prix, image, idMarque, idCategorie) VALUES (:nom, :description, :prix, :image, :marque, :categorie)");
+	$req->bindParam(':nom', $nom);
+	$req->bindParam(':description', $description);
+	$req->bindParam(':prix', $prix);
+	$req->bindParam(':image', $image);
+	$req->bindParam(':marque', $marque);
+	$req->bindParam(':categorie', $categorie);
+	$req->execute();
+	echo '<div class="alert alert-success py-3 w-25 m-auto text-center" role="alert"> Produit ajouté !</div>';
+}
+
+function AddProduitStock($updateId, $stock)
 {
 	$monPdo = connexionPDO();
-	$req = $monPdo->prepare("INSERT INTO produit (nom, description, prix, image, idMarque, idCategorie)  VALUES (:nom, :desc, :prix :image, :marque, :idCat)");
-	$req->bindParam('nom', $nom);
-	$req->bindParam('description', $desc);
-	$req->bindParam('prix', $prix);
-	$req->bindParam('image', $image);
-	$req->bindParam('idMarque', $marque);
-	$req->bindParam('idCategorie', $categorie);
+	$req = $monPdo->prepare("INSERT INTO `contenir` (`idContenance`, `idProduit`, `stock`) VALUES (1 , :updateId, :stock)");
+	$req->bindParam(':updateId', $updateId);
+	$req->bindParam(':stock', $stock);
 	$req->execute();
 }
 
-function modifProduit($produit, $nom, $description, $image, $marque, $categorie, $stock)
+function modifProduit($produit, $nom, $description, $prix, $image, $marque, $categorie)
 {
+	
 	$monPdo = connexionPDO();
-	$req = $monPdo->prepare("UPDATE `produit` SET (produit, nom, description, image, marque, categorie,stock WHERE produit='.$produit)  VALUES (:nom, :description :image, :marque, :categorie, :stock)");
+	$req = $monPdo->prepare("UPDATE `produit` SET nom = :nom, description = :description, prix =:prix, image =:image, idMarque =:marque, idCategorie =:categorie WHERE idProduit = :produit ");
+	$req->bindParam('produit', $produit);
 	$req->bindParam('nom', $nom);
 	$req->bindParam('description', $description);
+	$req->bindParam('prix', $prix);
 	$req->bindParam('image', $image);
 	$req->bindParam('marque', $marque);
 	$req->bindParam('categorie', $categorie);
+	$req->execute();
+	echo '<div class="alert alert-success py-3 w-25 m-auto text-center" role="alert"> Produit modifier !</div>';
+}
+
+function supProduit($produit)
+{
+	$monPdo = connexionPDO();
+	$req = $monPdo->prepare("DELETE FROM `produit` WHERE `produit`.`idProduit` = :produit");
+	$req->bindParam('produit', $produit);
+	$req->execute();
+	echo '<div class="alert alert-success py-3 w-25 m-auto text-center" role="alert"> Produit supprimé !</div>';
+}
+
+function supProduitContenir($produit)
+{
+	$monPdo = connexionPDO();
+	$req = $monPdo->prepare("DELETE FROM `contenir` WHERE `contenir`.`idProduit` = :produit");
+	$req->bindParam('produit', $produit);
+	$req->execute();
+}
+
+function supProduitAvis($produit)
+{
+	$monPdo = connexionPDO();
+	$req = $monPdo->prepare("DELETE FROM `contenir` WHERE `contenir`.`idProduit` = :produit");
+	$req->bindParam('produit', $produit);
+	$req->execute();
+}
+
+function modifProduitStock($produit, $stock)
+{
+	$monPdo = connexionPDO();
+	$req = $monPdo->prepare("UPDATE `contenir` SET stock = :stock WHERE idProduit = :produit ");
+	$req->bindParam('produit', $produit);
 	$req->bindParam('stock', $stock);
 	$req->execute();
 }
@@ -268,12 +316,15 @@ function getCommande()
 	return $commandes;
 }
 
-function commande()
+function getIdCommande()
 {
 	$monPdo = connexionPDO();
-	$req = $monPdo->prepare("INSERT INTO commande (nom, description, prix, image, idMarque, idCategorie)  VALUES (:nom, :desc, :prix :image, :marque, :idCat)");
-	$req->execute();
+	$req = 'SELECT idCommande FROM commande';
+	$res = $monPdo->query($req);
+	$idCommandes = $res->fetchAll();
+	return $idCommandes;
 }
+
 function addCategorie($acronyme, $libelle)
 {
 	$monPdo = connexionPDO();
@@ -302,5 +353,44 @@ function modifCat($categorie, $acronyme, $libelle)
 	$req->bindParam('libelle', $libelle);
 	$req->execute();
 	echo '<div class="alert alert-success py-3 w-25 m-auto text-center" role="alert"> Catégorie modifié !</div>';
+}
+
+function addMarque($nom)
+{
+	$monPdo = connexionPDO();
+	$req = $monPdo->prepare("INSERT INTO marque (nom)  VALUES (:nom)");
+	$req->bindParam('nom', $nom);
+	$req->execute();
+	echo '<div class="alert alert-success py-3 w-25 m-auto text-center" role="alert"> Marque ajouté !</div>';
+}
+
+function supMarque($marque)
+{
+	$monPdo = connexionPDO();
+	$req = $monPdo->prepare("DELETE FROM `marque` WHERE `marque`.`idMarque` = :marque");
+	$req->bindParam('marque', $marque);
+	$req->execute();
+	echo '<div class="alert alert-success py-3 w-25 m-auto text-center" role="alert"> Marque supprimé !</div>';
+}
+
+function modifMarque($marque, $nom)
+{
+	$monPdo = connexionPDO();
+	$req = $monPdo->prepare("UPDATE `marque` SET nom = :nom WHERE idMarque = :marque ");
+	$req->bindParam('marque', $marque);
+	$req->bindParam('nom', $nom);
+	$req->execute();
+	echo '<div class="alert alert-success py-3 w-25 m-auto text-center" role="alert"> Marque modifié !</div>';
+}
+
+
+function modifStatut($idCommande, $etatCommande)
+{
+	$monPdo = connexionPDO();
+	$req = $monPdo->prepare("UPDATE `commande` SET etat = :etatCommande WHERE idCommande = :idCommande ");
+	$req->bindParam('idCommande', $idCommande);
+	$req->bindParam('etatCommande', $etatCommande);
+	$req->execute();
+	echo '<div class="alert alert-success py-3 w-25 m-auto text-center" role="alert"> Statut commande modifié !</div>';
 }
 

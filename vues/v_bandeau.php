@@ -41,9 +41,10 @@
 				<div class="btn-group">
 					<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Admin </button>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="index.php?uc=gestionProduits&action=ajoutProduit">Modifier produit</a>
-						<a class="dropdown-item" href="index.php?uc=gestionProduits&action=Categorie">Modifier Categorie</a>
-						<a class="dropdown-item" href="index.php?uc=gestionProduits&action=histoCommande">Commande</a>
+						<a class="dropdown-item" href="index.php?uc=gestionProduits&action=Produit">Modifier produit</a>
+						<a class="dropdown-item" href="index.php?uc=gestionProduits&action=Categorie">Modifier categorie</a>
+						<a class="dropdown-item" href="index.php?uc=gestionProduits&action=Marque">Modifier marque</a>
+						<a class="dropdown-item" href="index.php?uc=gestionProduits&action=Commande">Commande</a>
 					</div>
 				</div>
 				<li><a href="index.php?uc=gestionConnexion&action=seDeconnecter"> Déconnexion </a></li>
