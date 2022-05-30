@@ -56,6 +56,7 @@ switch ($action) {
         modifMarque($_POST['marque'], $_POST['nom']);
     }
     include("vues/v_modifMarque.php");
+    break;
 }
 
 case 'Commande': {
@@ -64,8 +65,7 @@ case 'Commande': {
     modifStatut($_POST['idCommande'], $_POST['etatCommande']);
 }
   include("vues/v_histoCommande.php");
+  break;
 }
-
-
 }
 
