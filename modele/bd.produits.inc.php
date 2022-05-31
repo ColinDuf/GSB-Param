@@ -139,14 +139,14 @@ function creerCommande($nom, $rue, $cp, $ville, $mail, $lesIdProduit)
  * @param int $an une année
  * @return array $lesCommandes un tableau associatif contenant les infos des commandes du mois passé en paramètre
  */
-function getLesCommandesDuMois($mois, $an)
+function getLesCommandesDuMois($mois)
 {
 	try {
 		$monPdo = connexionPDO();
-		$req = 'select id, dateCommande, nomPrenomClient, adresseRueClient, cpClient, villeClient, mailClient from commande where YEAR(dateCommande)= ' . $an . ' AND MONTH(dateCommande)=' . $mois;
+		$req = 'select montant from commande where MONTH(date) =' . $mois;
 		$res = $monPdo->query($req);
-		$lesCommandes = $res->fetchAll();
-		return $lesCommandes;
+		$lesCommandesMois = $res->fetchAll();
+		return $lesCommandesMois;
 	} catch (PDOException $e) {
 		print "Erreur !: " . $e->getMessage();
 		die();
@@ -393,4 +393,17 @@ function modifStatut($idCommande, $etatCommande)
 	$req->execute();
 	echo '<div class="alert alert-success py-3 w-25 m-auto text-center" role="alert"> Statut commande modifié !</div>';
 }
+
+function getMontantCommande($date)
+{
+
+    $monPdo = connexionPDO();
+    $req = $monPdo->prepare('SELECT SUM(montant) FROM commande WHERE date =:date');
+    $req->bindParam('date', $date);
+    $req->execute();
+    $res = $req->fetch();
+
+    return $res;
+}
+
 

@@ -67,5 +67,12 @@ case 'Commande': {
   include("vues/v_histoCommande.php");
   break;
 }
+
+case 'dateCommande': {
+ $montantCommande = getMontantCommande($_POST['date']);
+ var_dump($montantCommande);
+  include("vues/v_histoCommandeMois.php");
+}
+
 }
 

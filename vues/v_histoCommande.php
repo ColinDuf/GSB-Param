@@ -42,3 +42,18 @@ foreach ($lesCommandes as $uneCommande) {
 		<button class="btn btn-outline-success" type="submit" name="modifCommande" value="modifCommande">Modifier</button>
 	</div>
 </form>
+
+
+
+
+<form action="index.php?uc=gestionProduits&action=dateCommande" class="form w-50 mx-auto" id="modifCommande" method="POST">
+	<div class="m-2"><u>Résumer du mois </u></div>
+
+	<div class="form__input-group">
+		<input type="date" class="form__input"  name="date">
+	</div>
+
+    <div class="mx-auto fit py-4">
+		<button class="btn btn-outline-success" type="submit" name="commandeDate" value="commandeDate">Valider</button>
+	</div>
+</form>
